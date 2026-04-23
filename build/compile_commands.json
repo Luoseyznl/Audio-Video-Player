@@ -1,0 +1,74 @@
+[
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/AVPlayer.dir/main.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/main.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/main.cc",
+  "output": "CMakeFiles/AVPlayer.dir/main.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/audio_player.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/audio_player.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/src/audio_player.cc",
+  "output": "src/CMakeFiles/av_player_core.dir/audio_player.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/decoder.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc",
+  "output": "src/CMakeFiles/av_player_core.dir/decoder.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/demuxer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc",
+  "output": "src/CMakeFiles/av_player_core.dir/demuxer.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/gl_renderer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc",
+  "output": "src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/player.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/player.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/src/player.cc",
+  "output": "src/CMakeFiles/av_player_core.dir/player.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/utils/logger.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/utils/logger.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/src/utils/logger.cc",
+  "output": "src/CMakeFiles/av_player_core.dir/utils/logger.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/tests",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=gnu++17 -o CMakeFiles/av_player_tests.dir/demuxer_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/demuxer_test.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/tests/demuxer_test.cc",
+  "output": "tests/CMakeFiles/av_player_tests.dir/demuxer_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock/include -I/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/c++  -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -I/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/c++  -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+}
+]

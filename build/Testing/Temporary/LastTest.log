@@ -1,0 +1,135 @@
+Start testing: Apr 23 22:08 CST
+----------------------------------------------------------
+1/4 Testing: DemuxerTest.OpenFile
+1/4 Test: DemuxerTest.OpenFile
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.OpenFile" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.OpenFile" start time: Apr 23 22:08 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.OpenFile
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.OpenFile
+[32m[2026-04-23 22:08:38.603] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-23 22:08:38.618] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-23 22:08:38.618] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-23 22:08:38.618] [INFO ] [demuxer_test.cc:24] Duration: 85226333 us
+[0m[32m[2026-04-23 22:08:38.618] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-23 22:08:38.618] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.OpenFile (15 ms)
+[----------] 1 test from DemuxerTest (15 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (15 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.OpenFile" end time: Apr 23 22:08 CST
+"DemuxerTest.OpenFile" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: DemuxerTest.StreamDiscovery
+2/4 Test: DemuxerTest.StreamDiscovery
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.StreamDiscovery" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.StreamDiscovery" start time: Apr 23 22:08 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.StreamDiscovery
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.StreamDiscovery
+[32m[2026-04-23 22:08:38.638] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-23 22:08:38.648] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-23 22:08:38.648] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-23 22:08:38.648] [INFO ] [demuxer_test.cc:36] Video Index: 0, Audio Index: 1
+[0m[32m[2026-04-23 22:08:38.648] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-23 22:08:38.648] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.StreamDiscovery (10 ms)
+[----------] 1 test from DemuxerTest (10 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (10 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.StreamDiscovery" end time: Apr 23 22:08 CST
+"DemuxerTest.StreamDiscovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: DemuxerTest.ReadPackets
+3/4 Test: DemuxerTest.ReadPackets
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.ReadPackets" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.ReadPackets" start time: Apr 23 22:08 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.ReadPackets
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.ReadPackets
+[32m[2026-04-23 22:08:38.665] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-23 22:08:38.676] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-23 22:08:38.676] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-23 22:08:38.676] [INFO ] [demuxer_test.cc:59] Successfully read 50 packets
+[0m[32m[2026-04-23 22:08:38.676] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-23 22:08:38.676] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.ReadPackets (10 ms)
+[----------] 1 test from DemuxerTest (10 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (10 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.ReadPackets" end time: Apr 23 22:08 CST
+"DemuxerTest.ReadPackets" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: DemuxerTest.SeekTest
+4/4 Test: DemuxerTest.SeekTest
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.SeekTest" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.SeekTest" start time: Apr 23 22:08 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.SeekTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.SeekTest
+[32m[2026-04-23 22:08:38.694] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-23 22:08:38.704] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-23 22:08:38.704] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[35m[2026-04-23 22:08:38.704] [DEBUG] [demuxer.cc:119] Seeking to 2000000us (target: 32000)
+[0m[32m[2026-04-23 22:08:38.704] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-23 22:08:38.704] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.SeekTest (9 ms)
+[----------] 1 test from DemuxerTest (9 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (9 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.SeekTest" end time: Apr 23 22:08 CST
+"DemuxerTest.SeekTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 23 22:08 CST
