@@ -209,6 +209,30 @@ audio_player.cc.s:
 	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/audio_player.cc.s
 .PHONY : audio_player.cc.s
 
+av_reader.o: av_reader.cc.o
+.PHONY : av_reader.o
+
+# target to build an object file
+av_reader.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/av_reader.cc.o
+.PHONY : av_reader.cc.o
+
+av_reader.i: av_reader.cc.i
+.PHONY : av_reader.i
+
+# target to preprocess a source file
+av_reader.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/av_reader.cc.i
+.PHONY : av_reader.cc.i
+
+av_reader.s: av_reader.cc.s
+.PHONY : av_reader.s
+
+# target to generate assembly for a file
+av_reader.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/av_reader.cc.s
+.PHONY : av_reader.cc.s
+
 decoder.o: decoder.cc.o
 .PHONY : decoder.o
 
@@ -346,6 +370,9 @@ help:
 	@echo "... audio_player.o"
 	@echo "... audio_player.i"
 	@echo "... audio_player.s"
+	@echo "... av_reader.o"
+	@echo "... av_reader.i"
+	@echo "... av_reader.s"
 	@echo "... decoder.o"
 	@echo "... decoder.i"
 	@echo "... decoder.s"

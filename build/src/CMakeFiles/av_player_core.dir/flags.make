@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils
+CXX_INCLUDES = -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -std=gnu++17 -D_REENTRANT
 

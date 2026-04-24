@@ -96,18 +96,18 @@ class Logger {
  * __FUNCTION__: 当前代码所在函数名
  * __LINE__: 当前代码所在行号
  */
-#define LOG_DEBUG                                                          \
-  utils::Logger::LogStream(utils::LogLevel::DEBUG, __FILE__, __FUNCTION__, \
-                           __LINE__)
-#define LOG_INFO                                                          \
-  utils::Logger::LogStream(utils::LogLevel::INFO, __FILE__, __FUNCTION__, \
-                           __LINE__)
-#define LOG_WARN                                                          \
-  utils::Logger::LogStream(utils::LogLevel::WARN, __FILE__, __FUNCTION__, \
-                           __LINE__)
-#define LOG_ERROR                                                          \
-  utils::Logger::LogStream(utils::LogLevel::ERROR, __FILE__, __FUNCTION__, \
-                           __LINE__)
-#define LOG_FATAL                                                          \
-  utils::Logger::LogStream(utils::LogLevel::FATAL, __FILE__, __FUNCTION__, \
-                           __LINE__)
+#define LOG_DEBUG                                                            \
+  ::utils::Logger::LogStream(utils::LogLevel::DEBUG, __FILE__, __FUNCTION__, \
+                             __LINE__)
+#define LOG_INFO                                                            \
+  ::utils::Logger::LogStream(utils::LogLevel::INFO, __FILE__, __FUNCTION__, \
+                             __LINE__)
+#define LOG_WARN                                                            \
+  ::utils::Logger::LogStream(utils::LogLevel::WARN, __FILE__, __FUNCTION__, \
+                             __LINE__)
+#define LOG_ERROR                                                            \
+  ::utils::Logger::LogStream(utils::LogLevel::ERROR, __FILE__, __FUNCTION__, \
+                             __LINE__)
+#define LOG_FATAL                                                            \
+  ::utils::Logger::LogStream(utils::LogLevel::FATAL, __FILE__, __FUNCTION__, \
+                             __LINE__)

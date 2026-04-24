@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/av_player_core.dir/audio_player.cc.o"
   "CMakeFiles/av_player_core.dir/audio_player.cc.o.d"
+  "CMakeFiles/av_player_core.dir/av_reader.cc.o"
+  "CMakeFiles/av_player_core.dir/av_reader.cc.o.d"
   "CMakeFiles/av_player_core.dir/decoder.cc.o"
   "CMakeFiles/av_player_core.dir/decoder.cc.o.d"
   "CMakeFiles/av_player_core.dir/demuxer.cc.o"

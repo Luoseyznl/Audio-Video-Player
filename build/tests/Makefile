@@ -185,6 +185,78 @@ av_player_tests/fast:
 	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/build
 .PHONY : av_player_tests/fast
 
+audio_player_test.o: audio_player_test.cc.o
+.PHONY : audio_player_test.o
+
+# target to build an object file
+audio_player_test.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o
+.PHONY : audio_player_test.cc.o
+
+audio_player_test.i: audio_player_test.cc.i
+.PHONY : audio_player_test.i
+
+# target to preprocess a source file
+audio_player_test.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.i
+.PHONY : audio_player_test.cc.i
+
+audio_player_test.s: audio_player_test.cc.s
+.PHONY : audio_player_test.s
+
+# target to generate assembly for a file
+audio_player_test.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.s
+.PHONY : audio_player_test.cc.s
+
+av_reader_test.o: av_reader_test.cc.o
+.PHONY : av_reader_test.o
+
+# target to build an object file
+av_reader_test.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o
+.PHONY : av_reader_test.cc.o
+
+av_reader_test.i: av_reader_test.cc.i
+.PHONY : av_reader_test.i
+
+# target to preprocess a source file
+av_reader_test.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.i
+.PHONY : av_reader_test.cc.i
+
+av_reader_test.s: av_reader_test.cc.s
+.PHONY : av_reader_test.s
+
+# target to generate assembly for a file
+av_reader_test.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.s
+.PHONY : av_reader_test.cc.s
+
+decoder_test.o: decoder_test.cc.o
+.PHONY : decoder_test.o
+
+# target to build an object file
+decoder_test.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o
+.PHONY : decoder_test.cc.o
+
+decoder_test.i: decoder_test.cc.i
+.PHONY : decoder_test.i
+
+# target to preprocess a source file
+decoder_test.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.i
+.PHONY : decoder_test.cc.i
+
+decoder_test.s: decoder_test.cc.s
+.PHONY : decoder_test.s
+
+# target to generate assembly for a file
+decoder_test.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.s
+.PHONY : decoder_test.cc.s
+
 demuxer_test.o: demuxer_test.cc.o
 .PHONY : demuxer_test.o
 
@@ -209,6 +281,54 @@ demuxer_test.cc.s:
 	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/demuxer_test.cc.s
 .PHONY : demuxer_test.cc.s
 
+gl_renderer_test.o: gl_renderer_test.cc.o
+.PHONY : gl_renderer_test.o
+
+# target to build an object file
+gl_renderer_test.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o
+.PHONY : gl_renderer_test.cc.o
+
+gl_renderer_test.i: gl_renderer_test.cc.i
+.PHONY : gl_renderer_test.i
+
+# target to preprocess a source file
+gl_renderer_test.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.i
+.PHONY : gl_renderer_test.cc.i
+
+gl_renderer_test.s: gl_renderer_test.cc.s
+.PHONY : gl_renderer_test.s
+
+# target to generate assembly for a file
+gl_renderer_test.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.s
+.PHONY : gl_renderer_test.cc.s
+
+player_test.o: player_test.cc.o
+.PHONY : player_test.o
+
+# target to build an object file
+player_test.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/player_test.cc.o
+.PHONY : player_test.cc.o
+
+player_test.i: player_test.cc.i
+.PHONY : player_test.i
+
+# target to preprocess a source file
+player_test.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/player_test.cc.i
+.PHONY : player_test.cc.i
+
+player_test.s: player_test.cc.s
+.PHONY : player_test.s
+
+# target to generate assembly for a file
+player_test.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/av_player_tests.dir/build.make tests/CMakeFiles/av_player_tests.dir/player_test.cc.s
+.PHONY : player_test.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -223,9 +343,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... av_player_tests"
+	@echo "... audio_player_test.o"
+	@echo "... audio_player_test.i"
+	@echo "... audio_player_test.s"
+	@echo "... av_reader_test.o"
+	@echo "... av_reader_test.i"
+	@echo "... av_reader_test.s"
+	@echo "... decoder_test.o"
+	@echo "... decoder_test.i"
+	@echo "... decoder_test.s"
 	@echo "... demuxer_test.o"
 	@echo "... demuxer_test.i"
 	@echo "... demuxer_test.s"
+	@echo "... gl_renderer_test.o"
+	@echo "... gl_renderer_test.i"
+	@echo "... gl_renderer_test.s"
+	@echo "... player_test.o"
+	@echo "... player_test.i"
+	@echo "... player_test.s"
 .PHONY : help
 
 

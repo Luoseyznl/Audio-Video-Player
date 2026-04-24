@@ -83,14 +83,94 @@ tests/CMakeFiles/av_player_tests.dir/demuxer_test.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_tests.dir/demuxer_test.cc.s"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/tests/demuxer_test.cc -o CMakeFiles/av_player_tests.dir/demuxer_test.cc.s
 
+tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o: tests/CMakeFiles/av_player_tests.dir/flags.make
+tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o: /home/gew/work/tutorial/Audio-Video-Player/tests/decoder_test.cc
+tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o: tests/CMakeFiles/av_player_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o -MF CMakeFiles/av_player_tests.dir/decoder_test.cc.o.d -o CMakeFiles/av_player_tests.dir/decoder_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/decoder_test.cc
+
+tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/av_player_tests.dir/decoder_test.cc.i"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/Audio-Video-Player/tests/decoder_test.cc > CMakeFiles/av_player_tests.dir/decoder_test.cc.i
+
+tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_tests.dir/decoder_test.cc.s"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/tests/decoder_test.cc -o CMakeFiles/av_player_tests.dir/decoder_test.cc.s
+
+tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o: tests/CMakeFiles/av_player_tests.dir/flags.make
+tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o: /home/gew/work/tutorial/Audio-Video-Player/tests/av_reader_test.cc
+tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o: tests/CMakeFiles/av_player_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o -MF CMakeFiles/av_player_tests.dir/av_reader_test.cc.o.d -o CMakeFiles/av_player_tests.dir/av_reader_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/av_reader_test.cc
+
+tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/av_player_tests.dir/av_reader_test.cc.i"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/Audio-Video-Player/tests/av_reader_test.cc > CMakeFiles/av_player_tests.dir/av_reader_test.cc.i
+
+tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_tests.dir/av_reader_test.cc.s"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/tests/av_reader_test.cc -o CMakeFiles/av_player_tests.dir/av_reader_test.cc.s
+
+tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o: tests/CMakeFiles/av_player_tests.dir/flags.make
+tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o: /home/gew/work/tutorial/Audio-Video-Player/tests/gl_renderer_test.cc
+tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o: tests/CMakeFiles/av_player_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o -MF CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o.d -o CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/gl_renderer_test.cc
+
+tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.i"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/Audio-Video-Player/tests/gl_renderer_test.cc > CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.i
+
+tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.s"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/tests/gl_renderer_test.cc -o CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.s
+
+tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o: tests/CMakeFiles/av_player_tests.dir/flags.make
+tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o: /home/gew/work/tutorial/Audio-Video-Player/tests/audio_player_test.cc
+tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o: tests/CMakeFiles/av_player_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o -MF CMakeFiles/av_player_tests.dir/audio_player_test.cc.o.d -o CMakeFiles/av_player_tests.dir/audio_player_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/audio_player_test.cc
+
+tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/av_player_tests.dir/audio_player_test.cc.i"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/Audio-Video-Player/tests/audio_player_test.cc > CMakeFiles/av_player_tests.dir/audio_player_test.cc.i
+
+tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_tests.dir/audio_player_test.cc.s"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/tests/audio_player_test.cc -o CMakeFiles/av_player_tests.dir/audio_player_test.cc.s
+
+tests/CMakeFiles/av_player_tests.dir/player_test.cc.o: tests/CMakeFiles/av_player_tests.dir/flags.make
+tests/CMakeFiles/av_player_tests.dir/player_test.cc.o: /home/gew/work/tutorial/Audio-Video-Player/tests/player_test.cc
+tests/CMakeFiles/av_player_tests.dir/player_test.cc.o: tests/CMakeFiles/av_player_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/CMakeFiles/av_player_tests.dir/player_test.cc.o"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/av_player_tests.dir/player_test.cc.o -MF CMakeFiles/av_player_tests.dir/player_test.cc.o.d -o CMakeFiles/av_player_tests.dir/player_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/player_test.cc
+
+tests/CMakeFiles/av_player_tests.dir/player_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/av_player_tests.dir/player_test.cc.i"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/Audio-Video-Player/tests/player_test.cc > CMakeFiles/av_player_tests.dir/player_test.cc.i
+
+tests/CMakeFiles/av_player_tests.dir/player_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_tests.dir/player_test.cc.s"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/tests/player_test.cc -o CMakeFiles/av_player_tests.dir/player_test.cc.s
+
 # Object files for target av_player_tests
 av_player_tests_OBJECTS = \
-"CMakeFiles/av_player_tests.dir/demuxer_test.cc.o"
+"CMakeFiles/av_player_tests.dir/demuxer_test.cc.o" \
+"CMakeFiles/av_player_tests.dir/decoder_test.cc.o" \
+"CMakeFiles/av_player_tests.dir/av_reader_test.cc.o" \
+"CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o" \
+"CMakeFiles/av_player_tests.dir/audio_player_test.cc.o" \
+"CMakeFiles/av_player_tests.dir/player_test.cc.o"
 
 # External object files for target av_player_tests
 av_player_tests_EXTERNAL_OBJECTS =
 
 tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/demuxer_test.cc.o
+tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o
+tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o
+tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o
+tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o
+tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/player_test.cc.o
 tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/build.make
 tests/av_player_tests: src/libav_player_core.a
 tests/av_player_tests: lib/libgtest_main.a
@@ -99,13 +179,14 @@ tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libavformat.so
 tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libavutil.so
 tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libswscale.so
 tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libswresample.so
+tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libSDL2.so
 tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libGLX.so
 tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 tests/av_player_tests: /usr/lib/x86_64-linux-gnu/libGLEW.so
 tests/av_player_tests: lib/libgtest.a
 tests/av_player_tests: tests/CMakeFiles/av_player_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable av_player_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable av_player_tests"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/av_player_tests.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/tests && /usr/bin/cmake -D TEST_TARGET=av_player_tests -D TEST_EXECUTABLE=/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/gew/work/tutorial/Audio-Video-Player/build/tests -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=av_player_tests_TESTS -D CTEST_FILE=/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.28/Modules/GoogleTestAddTests.cmake
 

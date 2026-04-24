@@ -69,21 +69,17 @@ AVStream* Demuxer::getAVStream(MediaType type) const {
   return nullptr;
 }
 
-PacketPtr Demuxer::readPacket() {
+PacketPtr Demuxer::pullPacket() {
   if (!format_ctx_) {
     LOG_ERROR << "Demuxer not initialized";
     return nullptr;
   }
 
-  // 现代 C++ 优化：诞生即交由智能指针托管
   PacketPtr pkt(av_packet_alloc());
   if (!pkt) return nullptr;
 
-  // 直接使用 pkt.get() 传入底层的 C 接口
   int ret = av_read_frame(format_ctx_.get(), pkt.get());
   if (ret < 0) {
-    // 读取失败，立刻释放 (现在只需直接 return nullptr，离开作用域 pkt
-    // 会自动释放内存)
     if (ret == AVERROR_EOF) {
       eof_ = true;
       LOG_INFO << "Reached end of file";
@@ -95,7 +91,6 @@ PacketPtr Demuxer::readPacket() {
     return nullptr;
   }
 
-  // 成功读取，直接将智能指针返回给调用者
   return pkt;
 }
 
@@ -127,6 +122,7 @@ bool Demuxer::seek(int64_t timestamp, int flags) {
     return false;
   }
 
+  avformat_flush(format_ctx_.get());
   eof_ = false;
   return true;
 }

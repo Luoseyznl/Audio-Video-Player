@@ -2,13 +2,18 @@ set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
 include(FetchContent)
 fetchcontent_declare(
     googletest
-    URL https://github.com/google/googletest/archive/refs/heads/main.zip
+    URL file:///home/gew/Downloads/googletest-main.zip
     DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 fetchcontent_makeavailable(googletest)
 
 set(TEST_SOURCES
     demuxer_test.cc
+    decoder_test.cc
+    av_reader_test.cc
+    gl_renderer_test.cc
+    audio_player_test.cc
+    player_test.cc
 )
 
 add_executable(av_player_tests ${TEST_SOURCES})

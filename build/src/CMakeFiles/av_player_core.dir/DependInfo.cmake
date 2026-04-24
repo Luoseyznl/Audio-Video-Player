@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/gew/work/tutorial/Audio-Video-Player/src/audio_player.cc" "src/CMakeFiles/av_player_core.dir/audio_player.cc.o" "gcc" "src/CMakeFiles/av_player_core.dir/audio_player.cc.o.d"
+  "/home/gew/work/tutorial/Audio-Video-Player/src/av_reader.cc" "src/CMakeFiles/av_player_core.dir/av_reader.cc.o" "gcc" "src/CMakeFiles/av_player_core.dir/av_reader.cc.o.d"
   "/home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc" "src/CMakeFiles/av_player_core.dir/decoder.cc.o" "gcc" "src/CMakeFiles/av_player_core.dir/decoder.cc.o.d"
   "/home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc" "src/CMakeFiles/av_player_core.dir/demuxer.cc.o" "gcc" "src/CMakeFiles/av_player_core.dir/demuxer.cc.o.d"
   "/home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc" "src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o" "gcc" "src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o.d"

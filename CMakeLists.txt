@@ -17,6 +17,8 @@ pkg_check_modules(FFMPEG REQUIRED IMPORTED_TARGET
     libswresample # 音频重采样 (负责转换音频的采样率和声道，以适配不同声卡的播放要求)
 )
 
+pkg_check_modules(SDL2 REQUIRED IMPORTED_TARGET sdl2)
+
 find_package(OpenGL REQUIRED) # 系统级图形 API 接口
 find_package(glfw3 REQUIRED) # 提供跨平台的窗口创建、上下文管理以及键盘/鼠标输入
 find_package(GLEW REQUIRED) # 跨平台的 C++ 扩展库，帮助获取现代 OpenGL 的高级函数指针
@@ -38,6 +40,7 @@ add_executable(AVPlayer main.cc)
 target_link_libraries(AVPlayer PRIVATE
     av_player_core
     PkgConfig::FFMPEG
+    PkgConfig::SDL2
     OpenGL::GL
     glfw
     GLEW::GLEW

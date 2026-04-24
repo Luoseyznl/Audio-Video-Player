@@ -93,11 +93,9 @@ googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-con
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-build && /usr/bin/cmake -E echo_append
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-build && /usr/bin/cmake -E touch /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure
 
-googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download: googletest-populate-prefix/src/googletest-populate-stamp/download-googletest-populate.cmake
 googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download: googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-urlinfo.txt
 googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download: googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (download, verify and extract) for 'googletest-populate'"
-	cd /home/gew/work/tutorial/Audio-Video-Player/build/_deps && /usr/bin/cmake -P /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/download-googletest-populate.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (verify and extract) for 'googletest-populate'"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/_deps && /usr/bin/cmake -P /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/verify-googletest-populate.cmake
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/_deps && /usr/bin/cmake -P /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/extract-googletest-populate.cmake
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/_deps && /usr/bin/cmake -E touch /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download

@@ -1,43 +1,49 @@
 [
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build",
-  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/AVPlayer.dir/main.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/main.cc",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/AVPlayer.dir/main.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/main.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/main.cc",
   "output": "CMakeFiles/AVPlayer.dir/main.cc.o"
 },
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
-  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/audio_player.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/audio_player.cc",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/av_player_core.dir/audio_player.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/audio_player.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/src/audio_player.cc",
   "output": "src/CMakeFiles/av_player_core.dir/audio_player.cc.o"
 },
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
-  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/decoder.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/av_player_core.dir/av_reader.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/av_reader.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/src/av_reader.cc",
+  "output": "src/CMakeFiles/av_player_core.dir/av_reader.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/av_player_core.dir/decoder.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc",
   "output": "src/CMakeFiles/av_player_core.dir/decoder.cc.o"
 },
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
-  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/demuxer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/av_player_core.dir/demuxer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc",
   "output": "src/CMakeFiles/av_player_core.dir/demuxer.cc.o"
 },
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
-  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/gl_renderer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/av_player_core.dir/gl_renderer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc",
   "output": "src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o"
 },
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
-  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/player.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/player.cc",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/av_player_core.dir/player.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/player.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/src/player.cc",
   "output": "src/CMakeFiles/av_player_core.dir/player.cc.o"
 },
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/src",
-  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -std=gnu++17 -o CMakeFiles/av_player_core.dir/utils/logger.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/utils/logger.cc",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /usr/include/SDL2 -std=gnu++17 -D_REENTRANT -o CMakeFiles/av_player_core.dir/utils/logger.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/utils/logger.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/src/utils/logger.cc",
   "output": "src/CMakeFiles/av_player_core.dir/utils/logger.cc.o"
 },
@@ -46,6 +52,36 @@
   "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=gnu++17 -o CMakeFiles/av_player_tests.dir/demuxer_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/demuxer_test.cc",
   "file": "/home/gew/work/tutorial/Audio-Video-Player/tests/demuxer_test.cc",
   "output": "tests/CMakeFiles/av_player_tests.dir/demuxer_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/tests",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=gnu++17 -o CMakeFiles/av_player_tests.dir/decoder_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/decoder_test.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/tests/decoder_test.cc",
+  "output": "tests/CMakeFiles/av_player_tests.dir/decoder_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/tests",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=gnu++17 -o CMakeFiles/av_player_tests.dir/av_reader_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/av_reader_test.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/tests/av_reader_test.cc",
+  "output": "tests/CMakeFiles/av_player_tests.dir/av_reader_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/tests",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=gnu++17 -o CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/gl_renderer_test.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/tests/gl_renderer_test.cc",
+  "output": "tests/CMakeFiles/av_player_tests.dir/gl_renderer_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/tests",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=gnu++17 -o CMakeFiles/av_player_tests.dir/audio_player_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/audio_player_test.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/tests/audio_player_test.cc",
+  "output": "tests/CMakeFiles/av_player_tests.dir/audio_player_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/tests",
+  "command": "/usr/bin/c++  -I/home/gew/work/tutorial/Audio-Video-Player/src -I/home/gew/work/tutorial/Audio-Video-Player/src/utils -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest -std=gnu++17 -o CMakeFiles/av_player_tests.dir/player_test.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/tests/player_test.cc",
+  "file": "/home/gew/work/tutorial/Audio-Video-Player/tests/player_test.cc",
+  "output": "tests/CMakeFiles/av_player_tests.dir/player_test.cc.o"
 },
 {
   "directory": "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-build/googlemock",

@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.5)
 
 # Make file names absolute:
 #
-get_filename_component(filename "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-subbuild/googletest-populate-prefix/src/main.zip" ABSOLUTE)
+get_filename_component(filename "/home/gew/Downloads/googletest-main.zip" ABSOLUTE)
 get_filename_component(directory "/home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src" ABSOLUTE)
 
 message(STATUS "extracting...

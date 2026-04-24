@@ -1,0 +1,506 @@
+Start testing: Apr 24 18:05 CST
+----------------------------------------------------------
+1/15 Testing: DemuxerTest.OpenFile
+1/15 Test: DemuxerTest.OpenFile
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.OpenFile" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.OpenFile" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.OpenFile
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.OpenFile
+[32m[2026-04-24 18:05:07.392] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.402] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.402] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.402] [INFO ] [demuxer_test.cc:24] Duration: 85226333 us
+[0m[32m[2026-04-24 18:05:07.402] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.402] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.OpenFile (10 ms)
+[----------] 1 test from DemuxerTest (10 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (10 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.OpenFile" end time: Apr 24 18:05 CST
+"DemuxerTest.OpenFile" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/15 Testing: DemuxerTest.StreamDiscovery
+2/15 Test: DemuxerTest.StreamDiscovery
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.StreamDiscovery" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.StreamDiscovery" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.StreamDiscovery
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.StreamDiscovery
+[32m[2026-04-24 18:05:07.424] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.434] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.434] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.434] [INFO ] [demuxer_test.cc:36] Video Index: 0, Audio Index: 1
+[0m[32m[2026-04-24 18:05:07.434] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.434] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.StreamDiscovery (9 ms)
+[----------] 1 test from DemuxerTest (10 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (10 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.StreamDiscovery" end time: Apr 24 18:05 CST
+"DemuxerTest.StreamDiscovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/15 Testing: DemuxerTest.ReadPackets
+3/15 Test: DemuxerTest.ReadPackets
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.ReadPackets" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.ReadPackets" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.ReadPackets
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.ReadPackets
+[32m[2026-04-24 18:05:07.464] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.474] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.474] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.474] [INFO ] [demuxer_test.cc:59] Successfully read 50 packets
+[0m[32m[2026-04-24 18:05:07.474] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.474] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.ReadPackets (9 ms)
+[----------] 1 test from DemuxerTest (9 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (9 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.ReadPackets" end time: Apr 24 18:05 CST
+"DemuxerTest.ReadPackets" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/15 Testing: DemuxerTest.SeekTest
+4/15 Test: DemuxerTest.SeekTest
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DemuxerTest.SeekTest" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DemuxerTest.SeekTest" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DemuxerTest.SeekTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DemuxerTest
+[ RUN      ] DemuxerTest.SeekTest
+[32m[2026-04-24 18:05:07.494] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.504] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.504] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[35m[2026-04-24 18:05:07.504] [DEBUG] [demuxer.cc:114] Seeking to 2000000us (target: 32000)
+[0m[32m[2026-04-24 18:05:07.505] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.505] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DemuxerTest.SeekTest (10 ms)
+[----------] 1 test from DemuxerTest (10 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (10 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"DemuxerTest.SeekTest" end time: Apr 24 18:05 CST
+"DemuxerTest.SeekTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/15 Testing: DecoderTest.OpenVideoDecoder
+5/15 Test: DecoderTest.OpenVideoDecoder
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DecoderTest.OpenVideoDecoder" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DecoderTest.OpenVideoDecoder" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DecoderTest.OpenVideoDecoder
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecoderTest
+[ RUN      ] DecoderTest.OpenVideoDecoder
+[32m[2026-04-24 18:05:07.530] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [decoder.cc:61] Video decoder initialized: 1920x1080, Pixel format: yuv420p
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [decoder_test.cc:40] Video Test Passed. Resolution: 1920x1080
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [decoder.cc:15] Destroying Decoder
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [decoder.cc:83] Closing decoder
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.540] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DecoderTest.OpenVideoDecoder (9 ms)
+[----------] 1 test from DecoderTest (9 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (9 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"DecoderTest.OpenVideoDecoder" end time: Apr 24 18:05 CST
+"DecoderTest.OpenVideoDecoder" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/15 Testing: DecoderTest.OpenAudioDecoder
+6/15 Test: DecoderTest.OpenAudioDecoder
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DecoderTest.OpenAudioDecoder" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DecoderTest.OpenAudioDecoder" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DecoderTest.OpenAudioDecoder
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecoderTest
+[ RUN      ] DecoderTest.OpenAudioDecoder
+[32m[2026-04-24 18:05:07.562] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.576] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.576] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.576] [INFO ] [decoder.cc:71] Audio decoder initialized: 48000Hz, 2 channels, Format: fltp
+[0m[32m[2026-04-24 18:05:07.576] [INFO ] [decoder.cc:15] Destroying Decoder
+[0m[32m[2026-04-24 18:05:07.576] [INFO ] [decoder.cc:83] Closing decoder
+[0m[32m[2026-04-24 18:05:07.576] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.576] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DecoderTest.OpenAudioDecoder (14 ms)
+[----------] 1 test from DecoderTest (14 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (14 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"DecoderTest.OpenAudioDecoder" end time: Apr 24 18:05 CST
+"DecoderTest.OpenAudioDecoder" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/15 Testing: DecoderTest.DecodeVideoFramesPipeline
+7/15 Test: DecoderTest.DecodeVideoFramesPipeline
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DecoderTest.DecodeVideoFramesPipeline" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DecoderTest.DecodeVideoFramesPipeline" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DecoderTest.DecodeVideoFramesPipeline
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecoderTest
+[ RUN      ] DecoderTest.DecodeVideoFramesPipeline
+[32m[2026-04-24 18:05:07.597] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.606] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.606] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.607] [INFO ] [decoder.cc:61] Video decoder initialized: 1920x1080, Pixel format: yuv420p
+[0m[32m[2026-04-24 18:05:07.638] [INFO ] [decoder_test.cc:104] Successfully decoded video frame 1 [PTS: 0]
+[0m[32m[2026-04-24 18:05:07.642] [INFO ] [decoder_test.cc:104] Successfully decoded video frame 2 [PTS: 528]
+[0m[32m[2026-04-24 18:05:07.647] [INFO ] [decoder_test.cc:104] Successfully decoded video frame 3 [PTS: 1072]
+[0m[32m[2026-04-24 18:05:07.650] [INFO ] [decoder_test.cc:104] Successfully decoded video frame 4 [PTS: 1600]
+[0m[32m[2026-04-24 18:05:07.653] [INFO ] [decoder_test.cc:104] Successfully decoded video frame 5 [PTS: 2128]
+[0m[32m[2026-04-24 18:05:07.653] [INFO ] [decoder.cc:15] Destroying Decoder
+[0m[32m[2026-04-24 18:05:07.653] [INFO ] [decoder.cc:83] Closing decoder
+[0m[32m[2026-04-24 18:05:07.655] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.655] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DecoderTest.DecodeVideoFramesPipeline (57 ms)
+[----------] 1 test from DecoderTest (57 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (57 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"DecoderTest.DecodeVideoFramesPipeline" end time: Apr 24 18:05 CST
+"DecoderTest.DecodeVideoFramesPipeline" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/15 Testing: DecoderTest.FlushDecoderAfterSeek
+8/15 Test: DecoderTest.FlushDecoderAfterSeek
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=DecoderTest.FlushDecoderAfterSeek" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"DecoderTest.FlushDecoderAfterSeek" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DecoderTest.FlushDecoderAfterSeek
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DecoderTest
+[ RUN      ] DecoderTest.FlushDecoderAfterSeek
+[32m[2026-04-24 18:05:07.678] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.688] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.688] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.688] [INFO ] [decoder.cc:61] Video decoder initialized: 1920x1080, Pixel format: yuv420p
+[0m[35m[2026-04-24 18:05:07.758] [DEBUG] [demuxer.cc:114] Seeking to 5000000us (target: 80000)
+[0m[32m[2026-04-24 18:05:07.759] [INFO ] [decoder.cc:90] Flushing decoder internal buffers
+[0m[32m[2026-04-24 18:05:07.759] [INFO ] [decoder_test.cc:138] Decoder flushed successfully after seek
+[0m[32m[2026-04-24 18:05:07.781] [INFO ] [decoder.cc:15] Destroying Decoder
+[0m[32m[2026-04-24 18:05:07.781] [INFO ] [decoder.cc:83] Closing decoder
+[0m[32m[2026-04-24 18:05:07.783] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.783] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] DecoderTest.FlushDecoderAfterSeek (104 ms)
+[----------] 1 test from DecoderTest (104 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (104 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"DecoderTest.FlushDecoderAfterSeek" end time: Apr 24 18:05 CST
+"DecoderTest.FlushDecoderAfterSeek" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/15 Testing: AVReaderTest.OpenAndCheckStreams
+9/15 Test: AVReaderTest.OpenAndCheckStreams
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=AVReaderTest.OpenAndCheckStreams" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"AVReaderTest.OpenAndCheckStreams" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = AVReaderTest.OpenAndCheckStreams
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from AVReaderTest
+[ RUN      ] AVReaderTest.OpenAndCheckStreams
+[32m[2026-04-24 18:05:07.807] [INFO ] [av_reader.cc:13] AVReader created. Video Queue: 200, Audio Queue: 500
+[0m[32m[2026-04-24 18:05:07.807] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [av_reader.cc:29] AVReader successfully opened: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [av_reader_test.cc:31] File duration: 85226333 us
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [av_reader.cc:18] Destroying AVReader
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [av_reader.cc:39] AVReader closed
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.817] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] AVReaderTest.OpenAndCheckStreams (9 ms)
+[----------] 1 test from AVReaderTest (9 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (9 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"AVReaderTest.OpenAndCheckStreams" end time: Apr 24 18:05 CST
+"AVReaderTest.OpenAndCheckStreams" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/15 Testing: AVReaderTest.PullPacketsFlow
+10/15 Test: AVReaderTest.PullPacketsFlow
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=AVReaderTest.PullPacketsFlow" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"AVReaderTest.PullPacketsFlow" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = AVReaderTest.PullPacketsFlow
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from AVReaderTest
+[ RUN      ] AVReaderTest.PullPacketsFlow
+[32m[2026-04-24 18:05:07.841] [INFO ] [av_reader.cc:13] AVReader created. Video Queue: 200, Audio Queue: 500
+[0m[32m[2026-04-24 18:05:07.841] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.855] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.855] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.855] [INFO ] [av_reader.cc:29] AVReader successfully opened: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.855] [INFO ] [av_reader.cc:45] Starting AVReader thread...
+[0m[32m[2026-04-24 18:05:07.855] [INFO ] [av_reader_test.cc:42] AVReader started, pulling packets...
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [av_reader.cc:104] AVReader background thread running
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [av_reader.cc:57] Stopping AVReader thread...
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [av_reader.cc:141] AVReader background thread exited
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [av_reader_test.cc:66] AVReader stopped cleanly
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [av_reader.cc:18] Destroying AVReader
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [av_reader.cc:39] AVReader closed
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:07.856] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] AVReaderTest.PullPacketsFlow (14 ms)
+[----------] 1 test from AVReaderTest (14 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (14 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"AVReaderTest.PullPacketsFlow" end time: Apr 24 18:05 CST
+"AVReaderTest.PullPacketsFlow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/15 Testing: AVReaderTest.BackpressureAndBlock
+11/15 Test: AVReaderTest.BackpressureAndBlock
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=AVReaderTest.BackpressureAndBlock" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"AVReaderTest.BackpressureAndBlock" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = AVReaderTest.BackpressureAndBlock
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from AVReaderTest
+[ RUN      ] AVReaderTest.BackpressureAndBlock
+[32m[2026-04-24 18:05:07.877] [INFO ] [av_reader.cc:13] AVReader created. Video Queue: 5, Audio Queue: 5
+[0m[32m[2026-04-24 18:05:07.877] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.887] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:07.887] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:07.887] [INFO ] [av_reader.cc:29] AVReader successfully opened: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:07.887] [INFO ] [av_reader.cc:45] Starting AVReader thread...
+[0m[32m[2026-04-24 18:05:07.887] [INFO ] [av_reader.cc:104] AVReader background thread running
+[0m[32m[2026-04-24 18:05:08.087] [INFO ] [av_reader_test.cc:80] Queues should be full and thread sleeping now.
+[0m[32m[2026-04-24 18:05:08.088] [INFO ] [av_reader.cc:57] Stopping AVReader thread...
+[0m[32m[2026-04-24 18:05:08.088] [INFO ] [av_reader.cc:141] AVReader background thread exited
+[0m[32m[2026-04-24 18:05:08.088] [INFO ] [av_reader.cc:18] Destroying AVReader
+[0m[32m[2026-04-24 18:05:08.088] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[32m[2026-04-24 18:05:08.088] [INFO ] [av_reader.cc:39] AVReader closed
+[0m[32m[2026-04-24 18:05:08.088] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:08.088] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] AVReaderTest.BackpressureAndBlock (210 ms)
+[----------] 1 test from AVReaderTest (210 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (210 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.23 sec
+----------------------------------------------------------
+Test Passed.
+"AVReaderTest.BackpressureAndBlock" end time: Apr 24 18:05 CST
+"AVReaderTest.BackpressureAndBlock" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/15 Testing: AVReaderTest.SeekClearsQueue
+12/15 Test: AVReaderTest.SeekClearsQueue
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=AVReaderTest.SeekClearsQueue" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"AVReaderTest.SeekClearsQueue" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = AVReaderTest.SeekClearsQueue
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from AVReaderTest
+[ RUN      ] AVReaderTest.SeekClearsQueue
+[32m[2026-04-24 18:05:08.109] [INFO ] [av_reader.cc:13] AVReader created. Video Queue: 200, Audio Queue: 500
+[0m[32m[2026-04-24 18:05:08.109] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:08.119] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:08.119] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:08.119] [INFO ] [av_reader.cc:29] AVReader successfully opened: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:08.119] [INFO ] [av_reader.cc:45] Starting AVReader thread...
+[0m[32m[2026-04-24 18:05:08.119] [INFO ] [av_reader.cc:104] AVReader background thread running
+[0m[32m[2026-04-24 18:05:08.119] [INFO ] [av_reader.cc:75] AVReader seeking to 5000000 us
+[0m[35m[2026-04-24 18:05:08.139] [DEBUG] [demuxer.cc:114] Seeking to 5000000us (target: 80000)
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [av_reader_test.cc:108] Seek Test Passed. Initial PTS: 0 -> Seek PTS: 80000
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [av_reader.cc:57] Stopping AVReader thread...
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [av_reader.cc:141] AVReader background thread exited
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [av_reader.cc:18] Destroying AVReader
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [av_reader.cc:39] AVReader closed
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:08.150] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[       OK ] AVReaderTest.SeekClearsQueue (41 ms)
+[----------] 1 test from AVReaderTest (41 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (41 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"AVReaderTest.SeekClearsQueue" end time: Apr 24 18:05 CST
+"AVReaderTest.SeekClearsQueue" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/15 Testing: GLRendererTest.PlayVideoContent
+13/15 Test: GLRendererTest.PlayVideoContent
+Command: "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests" "--gtest_filter=GLRendererTest.PlayVideoContent" "--gtest_also_run_disabled_tests"
+Directory: /home/gew/work/tutorial/Audio-Video-Player/build/tests
+"GLRendererTest.PlayVideoContent" start time: Apr 24 18:05 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/Audio-Video-Player/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = GLRendererTest.PlayVideoContent
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GLRendererTest
+[ RUN      ] GLRendererTest.PlayVideoContent
+[32m[2026-04-24 18:05:08.176] [INFO ] [av_reader.cc:13] AVReader created. Video Queue: 200, Audio Queue: 500
+[0m[32m[2026-04-24 18:05:08.176] [INFO ] [demuxer.cc:19] Opening media file: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [demuxer.cc:37] Found video stream at index 0
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [demuxer.cc:43] Found audio stream at index 1
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [av_reader.cc:29] AVReader successfully opened: ../../assets/LA.mp4
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [av_reader.cc:45] Starting AVReader thread...
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [av_reader.cc:104] AVReader background thread running
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [decoder.cc:61] Video decoder initialized: 1920x1080, Pixel format: yuv420p
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [gl_renderer_test.cc:34] Video resolution: 1920x1080
+[0m[32m[2026-04-24 18:05:08.185] [INFO ] [gl_renderer.cc:74] Initializing GL renderer with 1920x1080
+[0m[31m[2026-04-24 18:05:08.186] [ERROR] [gl_renderer.cc:80] Failed to initialize GLFW
+[0m/home/gew/work/tutorial/Audio-Video-Player/tests/gl_renderer_test.cc:38: Failure
+Value of: renderer.open(info.width, info.height, "AVPlayer - Video Test")
+  Actual: false
+Expected: true
+
+[32m[2026-04-24 18:05:08.186] [INFO ] [decoder.cc:15] Destroying Decoder
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [decoder.cc:83] Closing decoder
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [av_reader.cc:18] Destroying AVReader
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [av_reader.cc:57] Stopping AVReader thread...
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [av_reader.cc:141] AVReader background thread exited
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [av_reader.cc:39] AVReader closed
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [demuxer.cc:14] Destroying Demuxer
+[0m[32m[2026-04-24 18:05:08.186] [INFO ] [demuxer.cc:50] Closing demuxer
+[0m[  FAILED  ] GLRendererTest.PlayVideoContent (10 ms)
+[----------] 1 test from GLRendererTest (10 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (10 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] GLRendererTest.PlayVideoContent
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Failed.
+"GLRendererTest.PlayVideoContent" end time: Apr 24 18:05 CST
+"GLRendererTest.PlayVideoContent" time elapsed: 00:00:00
+----------------------------------------------------------
+

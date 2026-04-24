@@ -445,6 +445,9 @@ pkgcfg_lib_FFMPEG_swresample:FILEPATH=/usr/lib/x86_64-linux-gnu/libswresample.so
 //Path to a library.
 pkgcfg_lib_FFMPEG_swscale:FILEPATH=/usr/lib/x86_64-linux-gnu/libswscale.so
 
+//Path to a library.
+pkgcfg_lib_SDL2_SDL2:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2.so
+
 
 ########################
 # INTERNAL cache entries
@@ -731,12 +734,49 @@ OPENGL_xmesa_INCLUDE_DIR-ADVANCED:INTERNAL=1
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+SDL2_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/SDL2;-D_REENTRANT
+SDL2_CFLAGS_I:INTERNAL=
+SDL2_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+SDL2_FOUND:INTERNAL=1
+SDL2_INCLUDEDIR:INTERNAL=/usr/include
+SDL2_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/SDL2
+SDL2_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lSDL2
+SDL2_LDFLAGS_OTHER:INTERNAL=
+SDL2_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+SDL2_LIBRARIES:INTERNAL=SDL2
+SDL2_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+SDL2_LIBS:INTERNAL=
+SDL2_LIBS_L:INTERNAL=
+SDL2_LIBS_OTHER:INTERNAL=
+SDL2_LIBS_PATHS:INTERNAL=
+SDL2_MODULE_NAME:INTERNAL=sdl2
+SDL2_PREFIX:INTERNAL=/usr
+SDL2_STATIC_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/SDL2;-D_REENTRANT
+SDL2_STATIC_CFLAGS_I:INTERNAL=
+SDL2_STATIC_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+SDL2_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/SDL2
+SDL2_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lSDL2;-lm;-lasound;-lm;-ldl;-lpthread;-lpulse;-pthread;-lsamplerate;-lX11;-lXext;-lXcursor;-lXi;-lXfixes;-lXrandr;-lXss;-ldrm;-lgbm;-lwayland-egl;-lwayland-client;-lwayland-cursor;-lxkbcommon;-ldecor-0;-lpthread
+SDL2_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+SDL2_STATIC_LIBDIR:INTERNAL=
+SDL2_STATIC_LIBRARIES:INTERNAL=SDL2;m;asound;m;dl;pthread;pulse;samplerate;X11;Xext;Xcursor;Xi;Xfixes;Xrandr;Xss;drm;gbm;wayland-egl;wayland-client;wayland-cursor;xkbcommon;decor-0;pthread
+SDL2_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+SDL2_STATIC_LIBS:INTERNAL=
+SDL2_STATIC_LIBS_L:INTERNAL=
+SDL2_STATIC_LIBS_OTHER:INTERNAL=
+SDL2_STATIC_LIBS_PATHS:INTERNAL=
+SDL2_VERSION:INTERNAL=2.30.0
+SDL2_sdl2_INCLUDEDIR:INTERNAL=
+SDL2_sdl2_LIBDIR:INTERNAL=
+SDL2_sdl2_PREFIX:INTERNAL=
+SDL2_sdl2_VERSION:INTERNAL=
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/gew/work/tutorial/Audio-Video-Player/build
 __pkg_config_arguments_FFMPEG:INTERNAL=REQUIRED;IMPORTED_TARGET;libavcodec;libavformat;libavutil;libswscale;libswresample
+__pkg_config_arguments_SDL2:INTERNAL=REQUIRED;IMPORTED_TARGET;sdl2
 __pkg_config_checked_FFMPEG:INTERNAL=1
+__pkg_config_checked_SDL2:INTERNAL=1
 cmake_package_name:INTERNAL=GTest
 //ADVANCED property for variable: gmock_build_tests
 gmock_build_tests-ADVANCED:INTERNAL=1
@@ -760,5 +800,7 @@ pkgcfg_lib_FFMPEG_avutil-ADVANCED:INTERNAL=1
 pkgcfg_lib_FFMPEG_swresample-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_FFMPEG_swscale
 pkgcfg_lib_FFMPEG_swscale-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_SDL2_SDL2
+pkgcfg_lib_SDL2_SDL2-ADVANCED:INTERNAL=1
 prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
 

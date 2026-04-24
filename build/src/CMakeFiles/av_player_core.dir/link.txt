@@ -1,2 +1,2 @@
-/usr/bin/ar qc libav_player_core.a CMakeFiles/av_player_core.dir/audio_player.cc.o CMakeFiles/av_player_core.dir/decoder.cc.o CMakeFiles/av_player_core.dir/demuxer.cc.o CMakeFiles/av_player_core.dir/gl_renderer.cc.o CMakeFiles/av_player_core.dir/player.cc.o CMakeFiles/av_player_core.dir/utils/logger.cc.o
+/usr/bin/ar qc libav_player_core.a CMakeFiles/av_player_core.dir/audio_player.cc.o CMakeFiles/av_player_core.dir/av_reader.cc.o CMakeFiles/av_player_core.dir/decoder.cc.o CMakeFiles/av_player_core.dir/demuxer.cc.o CMakeFiles/av_player_core.dir/gl_renderer.cc.o CMakeFiles/av_player_core.dir/player.cc.o CMakeFiles/av_player_core.dir/utils/logger.cc.o
 /usr/bin/ranlib libav_player_core.a

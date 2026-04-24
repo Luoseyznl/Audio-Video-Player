@@ -45,7 +45,7 @@ TEST_F(DemuxerTest, ReadPackets) {
 
   int packet_count = 0;
   for (int i = 0; i < 50; ++i) {
-    PacketPtr pkt = demuxer.readPacket();
+    PacketPtr pkt = demuxer.pullPacket();
     if (pkt) {
       packet_count++;
       EXPECT_TRUE(
@@ -69,7 +69,7 @@ TEST_F(DemuxerTest, SeekTest) {
   EXPECT_TRUE(seek_success);
 
   // 跳转后读取一个包，验证其有效性
-  PacketPtr pkt = demuxer.readPacket();
+  PacketPtr pkt = demuxer.pullPacket();
   EXPECT_NE(pkt, nullptr);
 }
 

@@ -1,5 +1,16 @@
-DemuxerTest.OpenFile 1 0.0400096
-DemuxerTest.StreamDiscovery 1 0.0292266
-DemuxerTest.ReadPackets 1 0.0273622
-DemuxerTest.SeekTest 1 0.0277964
+DemuxerTest.OpenFile 4 0.00747201
+DemuxerTest.StreamDiscovery 4 0.00732588
+DemuxerTest.ReadPackets 4 0.00758437
+DemuxerTest.SeekTest 4 0.00886373
+DecoderTest.OpenVideoDecoder 4 0.0075847
+DecoderTest.OpenAudioDecoder 4 0.00823657
+DecoderTest.DecodeVideoFramesPipeline 4 0.0221002
+DecoderTest.FlushDecoderAfterSeek 4 0.0339271
+AVReaderTest.OpenAndCheckStreams 4 0.00753851
+AVReaderTest.PullPacketsFlow 4 0.0076064
+AVReaderTest.BackpressureAndBlock 4 0.0579947
+AVReaderTest.SeekClearsQueue 4 0.0149195
+GLRendererTest.PlayVideoContent 4 0.967665
+AudioPlayerTest.PlayAudioContent 4 1.27249
+PlayerTest.FullPlaybackLifecycle 1 10.2863
 ---

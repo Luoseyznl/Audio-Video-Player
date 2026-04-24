@@ -10,15 +10,25 @@ extern "C" {
 namespace avplayer {
 
 /**
- * FFmpeg 四大核心数据结构说明：
- * * 1. AVFormatContext 格式上下文：包含全局信息（总时长、码率、流数等）
- * - 通过 avformat_open_input() 打开，通过 avformat_close_input() 关闭并释放。
- * * 2. AVStream 流/轨道：具体的独立通道（视频流、音频流、字幕流等）
+ * 1. Ingestion LA.mp4 -> Demuxer -> AVPacket -> Decoder -> AVFrame ->
+ GLRenderer
+ * ├── AVFormatContext
+ * ├── AVStream
+ * └── AVPacket
+ * 2. Processing AVPacket -> Decoder
+ *
+ * FFmpeg 数据结构说明：
+ * * 1. AVFormatContext 格式上下文：总时长、码率、流数等
+ * - avformat_open_input() -> avformat_close_input()
+ * * 2. AVStream 流/轨道：视频流、音频流、字幕流等，包含 time_base 和编码参数。
  * - 归属于 AVFormatContext（同时打开和释放），【不能】手动释放。
  * * 3. AVPacket 数据包：解封装后、解码前的压缩数据（H.264 视频包、AAC 音频包）
- * - 通过 av_packet_alloc() 创建或 av_read_frame() 填充，av_packet_free() 释放。
- * * 4. AVFrame 原始帧：解码后的原始数据（如 YUV 像素矩阵、PCM 模拟信号）
- * - 通过 av_frame_alloc() 创建或由解码器输出，av_frame_free() 释放。
+ * - av_packet_alloc() / av_read_frame() -> av_packet_free()
+ * * 4. AVFrame 原始帧：YUV 像素矩阵、PCM 模拟信号
+ * - av_frame_alloc() -> av_frame_free()
+ * * 5. AVCodecContext 解码器上下文：具体流的解码工作
+ * - avcodec_alloc_context3() / avcodec_parameters_to_context() /
+ * avcodec_open2() -> avcodec_free_context()
  */
 enum class MediaType { Unknown = -1, Video = 0, Audio = 1 };
 
@@ -59,5 +69,17 @@ struct AVFormatContextDeleter {
 };
 using FormatContextPtr =
     std::unique_ptr<AVFormatContext, AVFormatContextDeleter>;
+
+// ==========================================
+// AVCodecContext (解码器上下文)
+// ==========================================
+struct AVCodecContextDeleter {
+  void operator()(AVCodecContext* ctx) const {
+    if (ctx) {
+      avcodec_free_context(&ctx);
+    }
+  }
+};
+using CodecContextPtr = std::unique_ptr<AVCodecContext, AVCodecContextDeleter>;
 
 }  // namespace avplayer

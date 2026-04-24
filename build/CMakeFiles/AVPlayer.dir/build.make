@@ -100,6 +100,7 @@ AVPlayer: /usr/lib/x86_64-linux-gnu/libavformat.so
 AVPlayer: /usr/lib/x86_64-linux-gnu/libavutil.so
 AVPlayer: /usr/lib/x86_64-linux-gnu/libswscale.so
 AVPlayer: /usr/lib/x86_64-linux-gnu/libswresample.so
+AVPlayer: /usr/lib/x86_64-linux-gnu/libSDL2.so
 AVPlayer: /usr/lib/x86_64-linux-gnu/libGLX.so
 AVPlayer: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 AVPlayer: CMakeFiles/AVPlayer.dir/link.txt

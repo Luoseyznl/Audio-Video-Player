@@ -83,10 +83,24 @@ src/CMakeFiles/av_player_core.dir/audio_player.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_core.dir/audio_player.cc.s"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/src/audio_player.cc -o CMakeFiles/av_player_core.dir/audio_player.cc.s
 
+src/CMakeFiles/av_player_core.dir/av_reader.cc.o: src/CMakeFiles/av_player_core.dir/flags.make
+src/CMakeFiles/av_player_core.dir/av_reader.cc.o: /home/gew/work/tutorial/Audio-Video-Player/src/av_reader.cc
+src/CMakeFiles/av_player_core.dir/av_reader.cc.o: src/CMakeFiles/av_player_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/av_player_core.dir/av_reader.cc.o"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/av_player_core.dir/av_reader.cc.o -MF CMakeFiles/av_player_core.dir/av_reader.cc.o.d -o CMakeFiles/av_player_core.dir/av_reader.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/av_reader.cc
+
+src/CMakeFiles/av_player_core.dir/av_reader.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/av_player_core.dir/av_reader.cc.i"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/Audio-Video-Player/src/av_reader.cc > CMakeFiles/av_player_core.dir/av_reader.cc.i
+
+src/CMakeFiles/av_player_core.dir/av_reader.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/av_player_core.dir/av_reader.cc.s"
+	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/Audio-Video-Player/src/av_reader.cc -o CMakeFiles/av_player_core.dir/av_reader.cc.s
+
 src/CMakeFiles/av_player_core.dir/decoder.cc.o: src/CMakeFiles/av_player_core.dir/flags.make
 src/CMakeFiles/av_player_core.dir/decoder.cc.o: /home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc
 src/CMakeFiles/av_player_core.dir/decoder.cc.o: src/CMakeFiles/av_player_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/av_player_core.dir/decoder.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/av_player_core.dir/decoder.cc.o"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/av_player_core.dir/decoder.cc.o -MF CMakeFiles/av_player_core.dir/decoder.cc.o.d -o CMakeFiles/av_player_core.dir/decoder.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/decoder.cc
 
 src/CMakeFiles/av_player_core.dir/decoder.cc.i: cmake_force
@@ -100,7 +114,7 @@ src/CMakeFiles/av_player_core.dir/decoder.cc.s: cmake_force
 src/CMakeFiles/av_player_core.dir/demuxer.cc.o: src/CMakeFiles/av_player_core.dir/flags.make
 src/CMakeFiles/av_player_core.dir/demuxer.cc.o: /home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc
 src/CMakeFiles/av_player_core.dir/demuxer.cc.o: src/CMakeFiles/av_player_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/av_player_core.dir/demuxer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/av_player_core.dir/demuxer.cc.o"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/av_player_core.dir/demuxer.cc.o -MF CMakeFiles/av_player_core.dir/demuxer.cc.o.d -o CMakeFiles/av_player_core.dir/demuxer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/demuxer.cc
 
 src/CMakeFiles/av_player_core.dir/demuxer.cc.i: cmake_force
@@ -114,7 +128,7 @@ src/CMakeFiles/av_player_core.dir/demuxer.cc.s: cmake_force
 src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o: src/CMakeFiles/av_player_core.dir/flags.make
 src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o: /home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc
 src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o: src/CMakeFiles/av_player_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o -MF CMakeFiles/av_player_core.dir/gl_renderer.cc.o.d -o CMakeFiles/av_player_core.dir/gl_renderer.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/gl_renderer.cc
 
 src/CMakeFiles/av_player_core.dir/gl_renderer.cc.i: cmake_force
@@ -128,7 +142,7 @@ src/CMakeFiles/av_player_core.dir/gl_renderer.cc.s: cmake_force
 src/CMakeFiles/av_player_core.dir/player.cc.o: src/CMakeFiles/av_player_core.dir/flags.make
 src/CMakeFiles/av_player_core.dir/player.cc.o: /home/gew/work/tutorial/Audio-Video-Player/src/player.cc
 src/CMakeFiles/av_player_core.dir/player.cc.o: src/CMakeFiles/av_player_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/av_player_core.dir/player.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/av_player_core.dir/player.cc.o"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/av_player_core.dir/player.cc.o -MF CMakeFiles/av_player_core.dir/player.cc.o.d -o CMakeFiles/av_player_core.dir/player.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/player.cc
 
 src/CMakeFiles/av_player_core.dir/player.cc.i: cmake_force
@@ -142,7 +156,7 @@ src/CMakeFiles/av_player_core.dir/player.cc.s: cmake_force
 src/CMakeFiles/av_player_core.dir/utils/logger.cc.o: src/CMakeFiles/av_player_core.dir/flags.make
 src/CMakeFiles/av_player_core.dir/utils/logger.cc.o: /home/gew/work/tutorial/Audio-Video-Player/src/utils/logger.cc
 src/CMakeFiles/av_player_core.dir/utils/logger.cc.o: src/CMakeFiles/av_player_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/av_player_core.dir/utils/logger.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/av_player_core.dir/utils/logger.cc.o"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/av_player_core.dir/utils/logger.cc.o -MF CMakeFiles/av_player_core.dir/utils/logger.cc.o.d -o CMakeFiles/av_player_core.dir/utils/logger.cc.o -c /home/gew/work/tutorial/Audio-Video-Player/src/utils/logger.cc
 
 src/CMakeFiles/av_player_core.dir/utils/logger.cc.i: cmake_force
@@ -156,6 +170,7 @@ src/CMakeFiles/av_player_core.dir/utils/logger.cc.s: cmake_force
 # Object files for target av_player_core
 av_player_core_OBJECTS = \
 "CMakeFiles/av_player_core.dir/audio_player.cc.o" \
+"CMakeFiles/av_player_core.dir/av_reader.cc.o" \
 "CMakeFiles/av_player_core.dir/decoder.cc.o" \
 "CMakeFiles/av_player_core.dir/demuxer.cc.o" \
 "CMakeFiles/av_player_core.dir/gl_renderer.cc.o" \
@@ -166,6 +181,7 @@ av_player_core_OBJECTS = \
 av_player_core_EXTERNAL_OBJECTS =
 
 src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/audio_player.cc.o
+src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/av_reader.cc.o
 src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/decoder.cc.o
 src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/demuxer.cc.o
 src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/gl_renderer.cc.o
@@ -173,7 +189,7 @@ src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/player.cc.o
 src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/utils/logger.cc.o
 src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/build.make
 src/libav_player_core.a: src/CMakeFiles/av_player_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libav_player_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/Audio-Video-Player/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libav_player_core.a"
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && $(CMAKE_COMMAND) -P CMakeFiles/av_player_core.dir/cmake_clean_target.cmake
 	cd /home/gew/work/tutorial/Audio-Video-Player/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/av_player_core.dir/link.txt --verbose=$(VERBOSE)
 

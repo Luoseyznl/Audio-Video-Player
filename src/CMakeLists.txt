@@ -1,5 +1,6 @@
 set(CORE_SOURCES
     audio_player.cc
+    av_reader.cc
     decoder.cc
     demuxer.cc
     gl_renderer.cc
@@ -17,6 +18,7 @@ target_include_directories(av_player_core PUBLIC
 
 target_link_libraries(av_player_core PRIVATE
     PkgConfig::FFMPEG
+    PkgConfig::SDL2
     OpenGL::GL
     glfw
     GLEW::GLEW
