@@ -10,32 +10,24 @@
 
 namespace avplayer {
 
-/**
- * @brief 媒体数据读取器
- * 职责：
- * 1. 独占式管理 Demuxer。
- * 2. 启动一个后台线程不断 pullPacket()。
- * 3. 按照 MediaType，将 Packet 分发到对应的安全队列中。
- * 4. 为下游（Decoder）提供阻塞式的获取包裹接口。
- */
-class AVReader {
+class PacketProducer {
  public:
-  explicit AVReader(size_t video_queue_size = 200,
-                    size_t audio_queue_size = 500);
-  ~AVReader();
+  explicit PacketProducer(size_t video_queue_size = 200,
+                          size_t audio_queue_size = 500);
+  ~PacketProducer();
+
+  PacketProducer(const PacketProducer&) = delete;
+  PacketProducer& operator=(const PacketProducer&) = delete;
 
   bool open(const std::string& filename);
   void close();
-
   void start();
   void stop();
   void pause(bool pause);
 
-  // 暂停线程 -> 清空双端队列 -> 调 Demuxer 跳转 -> 恢复线程
   bool seek(int64_t timestamp);
 
-  // 阻塞等待拉取数据
-  PacketPtr pullVideoPacket();
+  PacketPtr pullVideoPacket();  // 阻塞取包
   PacketPtr pullAudioPacket();
 
   const AVStream* getVideoStream() const {
@@ -46,22 +38,27 @@ class AVReader {
   }
 
   int64_t getDuration() const { return demuxer_.getDuration(); }
+
   bool isEOF() const {
     return eof_ && video_queue_.empty() && audio_queue_.empty();
   }
 
  private:
-  void readLoop();  // 核心物流分发线程
+  void produceLoop();  // 取包 -> 入队
 
-  Demuxer demuxer_;
+  Demuxer demuxer_;  // 独占式管理
 
   utils::SafeQueue<PacketPtr> video_queue_;
   utils::SafeQueue<PacketPtr> audio_queue_;
 
   std::thread thread_;
+
   std::atomic<bool> running_{false};
   std::atomic<bool> paused_{false};
   std::atomic<bool> eof_{false};
+
+  std::atomic<bool> seek_req_{false};
+  std::atomic<int64_t> seek_target_{0};
 };
 
 }  // namespace avplayer

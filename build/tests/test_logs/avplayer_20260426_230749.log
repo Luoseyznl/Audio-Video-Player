@@ -1,0 +1,96 @@
+[2026-04-26 23:07:49.041] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.041] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0
+[2026-04-26 23:07:49.057] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.057] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0
+[2026-04-26 23:07:49.072] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.072] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0
+[2026-04-26 23:07:49.087] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.087] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0
+[2026-04-26 23:07:49.103] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.103] [INFO ] [packet_producer.cc:13] PacketProducer created. Video Queue: 200, Audio Queue: 500
+[2026-04-26 23:07:49.103] [INFO ] [demuxer.cc:20] Demuxer opening media file: ../../assets/LA.mp4
+[2026-04-26 23:07:49.114] [INFO ] [demuxer.cc:43] Duration: 85s, Streams: 2
+[2026-04-26 23:07:49.114] [INFO ] [demuxer.cc:52] Video stream at index: 0, Audio stream at index: 1
+[2026-04-26 23:07:49.114] [INFO ] [packet_producer.cc:29] PacketProducer successfully opened: ../../assets/LA.mp4
+[2026-04-26 23:07:49.114] [INFO ] [packet_producer.cc:46] Starting PacketProducer thread...
+[2026-04-26 23:07:49.114] [INFO ] [packet_producer.cc:99] PacketProducer background thread running
+[2026-04-26 23:07:49.118] [INFO ] [decoder.cc:69] Video Decoder info: 1920x1080, Pixel format: yuv420p
+[2026-04-26 23:07:49.118] [INFO ] [decoder_test.cc:47] Video Decoder initialized. Resolution: 1920x1080
+[2026-04-26 23:07:49.118] [INFO ] [decoder.cc:15] Decoder Destroying
+[2026-04-26 23:07:49.118] [INFO ] [decoder.cc:91] Closing decoder...
+[2026-04-26 23:07:49.119] [INFO ] [packet_producer.cc:58] Stopping PacketProducer thread...
+[2026-04-26 23:07:49.119] [INFO ] [packet_producer.cc:146] PacketProducer background thread exited
+[2026-04-26 23:07:49.119] [INFO ] [demuxer.cc:60] Closing demuxer...
+[2026-04-26 23:07:49.119] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.119] [INFO ] [packet_producer.cc:18] PacketProducer Destroying
+[2026-04-26 23:07:49.119] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.119] [INFO ] [demuxer.cc:15] Demuxer Destroying
+[2026-04-26 23:07:49.119] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0
+[2026-04-26 23:07:49.135] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.135] [INFO ] [packet_producer.cc:13] PacketProducer created. Video Queue: 200, Audio Queue: 500
+[2026-04-26 23:07:49.135] [INFO ] [demuxer.cc:20] Demuxer opening media file: ../../assets/LA.mp4
+[2026-04-26 23:07:49.145] [INFO ] [demuxer.cc:43] Duration: 85s, Streams: 2
+[2026-04-26 23:07:49.145] [INFO ] [demuxer.cc:52] Video stream at index: 0, Audio stream at index: 1
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:29] PacketProducer successfully opened: ../../assets/LA.mp4
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:46] Starting PacketProducer thread...
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:99] PacketProducer background thread running
+[2026-04-26 23:07:49.145] [INFO ] [decoder.cc:79] Audio Decoder info: 48000Hz, 2 channels, Format: fltp
+[2026-04-26 23:07:49.145] [INFO ] [decoder_test.cc:72] Audio Decoder initialized. Sample Rate: 48000Hz
+[2026-04-26 23:07:49.145] [INFO ] [decoder.cc:15] Decoder Destroying
+[2026-04-26 23:07:49.145] [INFO ] [decoder.cc:91] Closing decoder...
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:58] Stopping PacketProducer thread...
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:146] PacketProducer background thread exited
+[2026-04-26 23:07:49.145] [INFO ] [demuxer.cc:60] Closing demuxer...
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:18] PacketProducer Destroying
+[2026-04-26 23:07:49.145] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.145] [INFO ] [demuxer.cc:15] Demuxer Destroying
+[2026-04-26 23:07:49.145] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0
+[2026-04-26 23:07:49.165] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.165] [INFO ] [packet_producer.cc:13] PacketProducer created. Video Queue: 200, Audio Queue: 500
+[2026-04-26 23:07:49.165] [INFO ] [demuxer.cc:20] Demuxer opening media file: ../../assets/LA.mp4
+[2026-04-26 23:07:49.175] [INFO ] [demuxer.cc:43] Duration: 85s, Streams: 2
+[2026-04-26 23:07:49.175] [INFO ] [demuxer.cc:52] Video stream at index: 0, Audio stream at index: 1
+[2026-04-26 23:07:49.175] [INFO ] [packet_producer.cc:29] PacketProducer successfully opened: ../../assets/LA.mp4
+[2026-04-26 23:07:49.175] [INFO ] [packet_producer.cc:46] Starting PacketProducer thread...
+[2026-04-26 23:07:49.176] [INFO ] [packet_producer.cc:99] PacketProducer background thread running
+[2026-04-26 23:07:49.180] [INFO ] [decoder.cc:69] Video Decoder info: 1920x1080, Pixel format: yuv420p
+[2026-04-26 23:07:49.229] [INFO ] [decoder_test.cc:115] Successfully decoded video frame 1 [PTS: 0]
+[2026-04-26 23:07:49.231] [INFO ] [decoder_test.cc:115] Successfully decoded video frame 2 [PTS: 528]
+[2026-04-26 23:07:49.233] [INFO ] [decoder_test.cc:115] Successfully decoded video frame 3 [PTS: 1072]
+[2026-04-26 23:07:49.234] [INFO ] [decoder_test.cc:115] Successfully decoded video frame 4 [PTS: 1600]
+[2026-04-26 23:07:49.234] [INFO ] [decoder_test.cc:115] Successfully decoded video frame 5 [PTS: 2128]
+[2026-04-26 23:07:49.234] [INFO ] [decoder.cc:15] Decoder Destroying
+[2026-04-26 23:07:49.234] [INFO ] [decoder.cc:91] Closing decoder...
+[2026-04-26 23:07:49.244] [INFO ] [packet_producer.cc:58] Stopping PacketProducer thread...
+[2026-04-26 23:07:49.244] [INFO ] [packet_producer.cc:146] PacketProducer background thread exited
+[2026-04-26 23:07:49.244] [INFO ] [demuxer.cc:60] Closing demuxer...
+[2026-04-26 23:07:49.244] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.244] [INFO ] [packet_producer.cc:18] PacketProducer Destroying
+[2026-04-26 23:07:49.244] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.244] [INFO ] [demuxer.cc:15] Demuxer Destroying
+[2026-04-26 23:07:49.244] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0
+[2026-04-26 23:07:49.270] [INFO ] [demuxer_test.cc:120] Starting AVPlayer Demuxer Test Suite
+[2026-04-26 23:07:49.271] [INFO ] [packet_producer.cc:13] PacketProducer created. Video Queue: 200, Audio Queue: 500
+[2026-04-26 23:07:49.271] [INFO ] [demuxer.cc:20] Demuxer opening media file: ../../assets/LA.mp4
+[2026-04-26 23:07:49.282] [INFO ] [demuxer.cc:43] Duration: 85s, Streams: 2
+[2026-04-26 23:07:49.282] [INFO ] [demuxer.cc:52] Video stream at index: 0, Audio stream at index: 1
+[2026-04-26 23:07:49.282] [INFO ] [packet_producer.cc:29] PacketProducer successfully opened: ../../assets/LA.mp4
+[2026-04-26 23:07:49.282] [INFO ] [packet_producer.cc:46] Starting PacketProducer thread...
+[2026-04-26 23:07:49.282] [INFO ] [packet_producer.cc:99] PacketProducer background thread running
+[2026-04-26 23:07:49.287] [INFO ] [decoder.cc:69] Video Decoder info: 1920x1080, Pixel format: yuv420p
+[2026-04-26 23:07:49.356] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 5000000 us
+[2026-04-26 23:07:49.357] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 5000000us
+[2026-04-26 23:07:49.357] [DEBUG] [demuxer.cc:119] Demxuer first seeking to 5000000us 
+[2026-04-26 23:07:49.357] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:07:49.363] [INFO ] [decoder_test.cc:153] Decoder flushed successfully after seek
+[2026-04-26 23:07:49.375] [INFO ] [decoder.cc:15] Decoder Destroying
+[2026-04-26 23:07:49.376] [INFO ] [decoder.cc:91] Closing decoder...
+[2026-04-26 23:07:49.391] [INFO ] [packet_producer.cc:58] Stopping PacketProducer thread...
+[2026-04-26 23:07:49.391] [INFO ] [packet_producer.cc:146] PacketProducer background thread exited
+[2026-04-26 23:07:49.391] [INFO ] [demuxer.cc:60] Closing demuxer...
+[2026-04-26 23:07:49.391] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.391] [INFO ] [packet_producer.cc:18] PacketProducer Destroying
+[2026-04-26 23:07:49.391] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:07:49.391] [INFO ] [demuxer.cc:15] Demuxer Destroying
+[2026-04-26 23:07:49.392] [INFO ] [demuxer_test.cc:125] Test Suite Finished with code: 0

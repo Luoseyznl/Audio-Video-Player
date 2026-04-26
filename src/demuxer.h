@@ -1,40 +1,35 @@
 #pragma once
 
-extern "C" {
-#include <libavformat/avformat.h>
-}
-
 #include <string>
 
 #include "mediadefs.h"
 
+struct AVStream;  // 前向声明 FFmpeg 结构体，减少头文件污染
+
 namespace avplayer {
 
-/**
- * @brief 解封装器 (Demuxer)
- * 职责：打开多媒体文件（集装箱），提取出压缩的数据包（AVPacket）交由后续的解码器处理。
- */
 class Demuxer {
  public:
   Demuxer() = default;
   ~Demuxer();
 
-  bool open(const std::string& filename);
-  void close();
+  Demuxer(const Demuxer&) = delete;
+  Demuxer& operator=(const Demuxer&) = delete;
 
-  int getStreamIndex(MediaType type) const;
+  bool open(const std::string& filename);  // 阻塞等待
+  void close();                            // 幂等释放
+
+  PacketPtr pullPacket();        // 阻塞取包
+  bool seek(int64_t timestamp);  // 阻塞跳转后向最近时刻（us）
+
   AVStream* getAVStream(MediaType type) const;
+  int64_t getDuration() const;  // 总时长（us）
 
-  /**
-   * @brief 从媒体文件中拉取下一个压缩数据包
-   * @return 包含压缩数据的智能指针。若读取完毕(EOF)或出错，返回 nullptr。
-   */
-  PacketPtr pullPacket();
-
-  // 跳转到目标时间点之前最近的关键帧，再交给解码线程追到精确时间点
-  bool seek(int64_t timestamp, int flags = AVSEEK_FLAG_BACKWARD);
-
-  int64_t getDuration() const;
+  int getStreamIndex(MediaType type) const {
+    if (type == MediaType::Video) return video_stream_index_;
+    if (type == MediaType::Audio) return audio_stream_index_;
+    return -1;
+  }
   bool isEOF() const { return eof_; }
 
  private:

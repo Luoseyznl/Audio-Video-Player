@@ -1,0 +1,159 @@
+[2026-04-26 23:09:14.592] [INFO ] [packet_producer.cc:13] PacketProducer created. Video Queue: 200, Audio Queue: 500
+[2026-04-26 23:09:14.592] [INFO ] [player.cc:23] Initializing Player Engine
+[2026-04-26 23:09:14.592] [INFO ] [main.cc:134] Loading media: ../../assets/LA.mp4
+[2026-04-26 23:09:14.592] [INFO ] [player.cc:31] Player opening: ../../assets/LA.mp4
+[2026-04-26 23:09:14.592] [INFO ] [demuxer.cc:20] Demuxer opening media file: ../../assets/LA.mp4
+[2026-04-26 23:09:14.603] [INFO ] [demuxer.cc:43] Duration: 85s, Streams: 2
+[2026-04-26 23:09:14.603] [INFO ] [demuxer.cc:52] Video stream at index: 0, Audio stream at index: 1
+[2026-04-26 23:09:14.603] [INFO ] [packet_producer.cc:29] PacketProducer successfully opened: ../../assets/LA.mp4
+[2026-04-26 23:09:14.607] [INFO ] [decoder.cc:69] Video Decoder info: 1920x1080, Pixel format: yuv420p
+[2026-04-26 23:09:14.607] [INFO ] [gl_renderer.cc:53] Initializing GL renderer with 1920x1080
+[2026-04-26 23:09:14.723] [INFO ] [decoder.cc:79] Audio Decoder info: 48000Hz, 2 channels, Format: fltp
+[2026-04-26 23:09:14.723] [INFO ] [audio_renderer.cc:20] Initializing AudioRenderer with 48000Hz, 2 channels
+[2026-04-26 23:09:14.740] [INFO ] [audio_renderer.cc:75] AudioRenderer successfully opened
+[2026-04-26 23:09:14.740] [INFO ] [packet_producer.cc:46] Starting PacketProducer thread...
+[2026-04-26 23:09:14.740] [INFO ] [player.cc:87] Player initialization complete
+[2026-04-26 23:09:14.740] [INFO ] [packet_producer.cc:99] PacketProducer background thread running
+[2026-04-26 23:09:14.740] [INFO ] [player.cc:244] Video decode & render loop started
+[2026-04-26 23:09:14.740] [INFO ] [player.cc:186] Audio decode loop started
+[2026-04-26 23:09:14.740] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:15.788] [INFO ] [player.cc:145] Seeking to 10.9813s
+[2026-04-26 23:09:15.788] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:15.788] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 10981333 us
+[2026-04-26 23:09:15.788] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 10981333us
+[2026-04-26 23:09:15.788] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:15.791] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:15.791] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:15.792] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:16.477] [INFO ] [player.cc:145] Seeking to 21.648s
+[2026-04-26 23:09:16.477] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:16.477] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 21648000 us
+[2026-04-26 23:09:16.477] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 21648000us
+[2026-04-26 23:09:16.477] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:16.477] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:16.477] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:16.477] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:18.854] [INFO ] [player.cc:145] Seeking to 34s
+[2026-04-26 23:09:18.854] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:18.854] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 34000000 us
+[2026-04-26 23:09:18.854] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:18.855] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 34000000us
+[2026-04-26 23:09:18.856] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:18.856] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:18.856] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:18.929] [WARN ] [player.cc:314] Video lagging behind audio by 69ms. Dropping frame.
+[2026-04-26 23:09:19.340] [INFO ] [player.cc:145] Seeking to 44.4747s
+[2026-04-26 23:09:19.340] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:19.340] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 44474666 us
+[2026-04-26 23:09:19.340] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:19.340] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 44474666us
+[2026-04-26 23:09:19.341] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:19.341] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:19.341] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:19.414] [WARN ] [player.cc:314] Video lagging behind audio by 44ms. Dropping frame.
+[2026-04-26 23:09:19.805] [INFO ] [player.cc:145] Seeking to 34.928s
+[2026-04-26 23:09:19.805] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:19.805] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 34928000 us
+[2026-04-26 23:09:19.805] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:19.805] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 34928000us
+[2026-04-26 23:09:19.805] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:19.805] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:19.805] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:19.901] [WARN ] [player.cc:314] Video lagging behind audio by 75ms. Dropping frame.
+[2026-04-26 23:09:19.901] [WARN ] [player.cc:314] Video lagging behind audio by 41ms. Dropping frame.
+[2026-04-26 23:09:20.270] [INFO ] [player.cc:145] Seeking to 25.392s
+[2026-04-26 23:09:20.270] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:20.270] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 25392000 us
+[2026-04-26 23:09:20.270] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:20.270] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 25392000us
+[2026-04-26 23:09:20.270] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:20.270] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:20.270] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:21.500] [INFO ] [player.cc:145] Seeking to 36.6027s
+[2026-04-26 23:09:21.500] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:21.500] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 36602666 us
+[2026-04-26 23:09:21.500] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 36602666us
+[2026-04-26 23:09:21.500] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:21.500] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:21.500] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:21.500] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:21.904] [INFO ] [player.cc:145] Seeking to 46.992s
+[2026-04-26 23:09:21.904] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:21.904] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 46992000 us
+[2026-04-26 23:09:21.904] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 46992000us
+[2026-04-26 23:09:21.904] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:21.904] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:21.904] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:21.904] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:22.449] [INFO ] [player.cc:145] Seeking to 37.5307s
+[2026-04-26 23:09:22.449] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:22.449] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 37530666 us
+[2026-04-26 23:09:22.449] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 37530666us
+[2026-04-26 23:09:22.449] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:22.449] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:22.449] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:22.449] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:22.873] [INFO ] [player.cc:145] Seeking to 27.952s
+[2026-04-26 23:09:22.873] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:22.873] [INFO ] [packet_producer.cc:75] PacketProducer seeking to 27952000 us
+[2026-04-26 23:09:22.873] [INFO ] [packet_producer.cc:106] PacketProducer executing seek to 27952000us
+[2026-04-26 23:09:22.873] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:22.878] [INFO ] [decoder.cc:98] Flushing decoder buffers
+[2026-04-26 23:09:22.878] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:22.878] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:35.895] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:36.198] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:36.540] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:36.843] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:37.167] [INFO ] [audio_renderer.cc:211] Audio volume set to: 90%
+[2026-04-26 23:09:37.389] [INFO ] [audio_renderer.cc:211] Audio volume set to: 79.8438%
+[2026-04-26 23:09:37.611] [INFO ] [audio_renderer.cc:211] Audio volume set to: 69.6875%
+[2026-04-26 23:09:37.813] [INFO ] [audio_renderer.cc:211] Audio volume set to: 59.5312%
+[2026-04-26 23:09:37.995] [INFO ] [audio_renderer.cc:211] Audio volume set to: 49.375%
+[2026-04-26 23:09:38.157] [INFO ] [audio_renderer.cc:211] Audio volume set to: 39.2188%
+[2026-04-26 23:09:38.419] [INFO ] [audio_renderer.cc:211] Audio volume set to: 29.0625%
+[2026-04-26 23:09:38.621] [INFO ] [audio_renderer.cc:211] Audio volume set to: 18.9062%
+[2026-04-26 23:09:38.803] [INFO ] [audio_renderer.cc:211] Audio volume set to: 8.75%
+[2026-04-26 23:09:39.387] [INFO ] [audio_renderer.cc:211] Audio volume set to: 18.5938%
+[2026-04-26 23:09:39.589] [INFO ] [audio_renderer.cc:211] Audio volume set to: 27.9687%
+[2026-04-26 23:09:39.751] [INFO ] [audio_renderer.cc:211] Audio volume set to: 37.3438%
+[2026-04-26 23:09:39.892] [INFO ] [audio_renderer.cc:211] Audio volume set to: 46.7188%
+[2026-04-26 23:09:40.013] [INFO ] [audio_renderer.cc:211] Audio volume set to: 56.0938%
+[2026-04-26 23:09:40.195] [INFO ] [audio_renderer.cc:211] Audio volume set to: 65.4688%
+[2026-04-26 23:09:40.317] [INFO ] [audio_renderer.cc:211] Audio volume set to: 74.8438%
+[2026-04-26 23:09:40.479] [INFO ] [audio_renderer.cc:211] Audio volume set to: 84.2188%
+[2026-04-26 23:09:40.580] [INFO ] [audio_renderer.cc:211] Audio volume set to: 93.5938%
+[2026-04-26 23:09:40.701] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:40.802] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:41.144] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:41.326] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:41.709] [INFO ] [audio_renderer.cc:211] Audio volume set to: 100%
+[2026-04-26 23:09:42.192] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:43.541] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:44.387] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:45.374] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:09:45.737] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:09:46.322] [INFO ] [audio_renderer.cc:102] Audio playback started
+[2026-04-26 23:10:15.647] [INFO ] [demuxer.cc:90] Reached End Of File
+[2026-04-26 23:10:15.647] [INFO ] [packet_producer.cc:127] PacketProducer dispatching EOF signal to queues.
+[2026-04-26 23:10:22.375] [INFO ] [player.cc:258] Video playback finished
+[2026-04-26 23:10:22.375] [INFO ] [player.cc:335] Video decode & render loop exited
+[2026-04-26 23:10:22.389] [INFO ] [main.cc:200] Initiating player shutdown...
+[2026-04-26 23:10:22.389] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:10:22.389] [INFO ] [packet_producer.cc:58] Stopping PacketProducer thread...
+[2026-04-26 23:10:22.389] [INFO ] [player.cc:240] Audio decode loop exited
+[2026-04-26 23:10:22.396] [INFO ] [packet_producer.cc:146] PacketProducer background thread exited
+[2026-04-26 23:10:22.396] [INFO ] [demuxer.cc:60] Closing demuxer...
+[2026-04-26 23:10:22.396] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:10:22.396] [INFO ] [decoder.cc:91] Closing decoder...
+[2026-04-26 23:10:22.400] [INFO ] [decoder.cc:91] Closing decoder...
+[2026-04-26 23:10:22.407] [INFO ] [audio_renderer.cc:109] Audio playback paused
+[2026-04-26 23:10:22.450] [INFO ] [main.cc:204] AVPlayer exited cleanly.
+[2026-04-26 23:10:22.450] [INFO ] [player.cc:26] Destroying Player Engine
+[2026-04-26 23:10:22.450] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:10:22.450] [INFO ] [audio_renderer.cc:15] AudioRenderer Destroying
+[2026-04-26 23:10:22.450] [INFO ] [decoder.cc:15] Decoder Destroying
+[2026-04-26 23:10:22.450] [INFO ] [decoder.cc:15] Decoder Destroying
+[2026-04-26 23:10:22.450] [INFO ] [packet_producer.cc:18] PacketProducer Destroying
+[2026-04-26 23:10:22.450] [INFO ] [packet_producer.cc:40] PacketProducer closed
+[2026-04-26 23:10:22.450] [INFO ] [demuxer.cc:15] Demuxer Destroying

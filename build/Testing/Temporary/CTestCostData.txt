@@ -13,4 +13,12 @@ AVReaderTest.SeekClearsQueue 4 0.0149195
 GLRendererTest.PlayVideoContent 4 0.967665
 AudioPlayerTest.PlayAudioContent 4 1.27249
 PlayerTest.FullPlaybackLifecycle 1 10.2863
+[0mDemuxerTest.OpensValidMediaFileAndGetsDuration 1 0.0153956
+[0mDemuxerTest.DiscoversAudioAndVideoStreams 1 0.0150339
+[0mDemuxerTest.PullsPacketsContinuously 1 0.0145849
+[0mDemuxerTest.SeeksToSpecificTimestamp 1 0.0152699
+DecoderTest.OpensVideoDecoderSuccessfully 1 0.0310425
+DecoderTest.OpensAudioDecoderSuccessfully 1 0.0270082
+DecoderTest.DecodesVideoFramesPipeline 1 0.10533
+DecoderTest.FlushesDecoderAfterSeek 1 0.148539
 ---

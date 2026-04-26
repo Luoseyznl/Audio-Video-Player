@@ -1,6 +1,6 @@
 set(CORE_SOURCES
-    audio_player.cc
-    av_reader.cc
+    audio_renderer.cc
+    packet_producer.cc
     decoder.cc
     demuxer.cc
     gl_renderer.cc

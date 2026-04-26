@@ -185,53 +185,29 @@ av_player_core/fast:
 	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/build
 .PHONY : av_player_core/fast
 
-audio_player.o: audio_player.cc.o
-.PHONY : audio_player.o
+audio_renderer.o: audio_renderer.cc.o
+.PHONY : audio_renderer.o
 
 # target to build an object file
-audio_player.cc.o:
-	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/audio_player.cc.o
-.PHONY : audio_player.cc.o
+audio_renderer.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/audio_renderer.cc.o
+.PHONY : audio_renderer.cc.o
 
-audio_player.i: audio_player.cc.i
-.PHONY : audio_player.i
-
-# target to preprocess a source file
-audio_player.cc.i:
-	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/audio_player.cc.i
-.PHONY : audio_player.cc.i
-
-audio_player.s: audio_player.cc.s
-.PHONY : audio_player.s
-
-# target to generate assembly for a file
-audio_player.cc.s:
-	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/audio_player.cc.s
-.PHONY : audio_player.cc.s
-
-av_reader.o: av_reader.cc.o
-.PHONY : av_reader.o
-
-# target to build an object file
-av_reader.cc.o:
-	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/av_reader.cc.o
-.PHONY : av_reader.cc.o
-
-av_reader.i: av_reader.cc.i
-.PHONY : av_reader.i
+audio_renderer.i: audio_renderer.cc.i
+.PHONY : audio_renderer.i
 
 # target to preprocess a source file
-av_reader.cc.i:
-	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/av_reader.cc.i
-.PHONY : av_reader.cc.i
+audio_renderer.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/audio_renderer.cc.i
+.PHONY : audio_renderer.cc.i
 
-av_reader.s: av_reader.cc.s
-.PHONY : av_reader.s
+audio_renderer.s: audio_renderer.cc.s
+.PHONY : audio_renderer.s
 
 # target to generate assembly for a file
-av_reader.cc.s:
-	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/av_reader.cc.s
-.PHONY : av_reader.cc.s
+audio_renderer.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/audio_renderer.cc.s
+.PHONY : audio_renderer.cc.s
 
 decoder.o: decoder.cc.o
 .PHONY : decoder.o
@@ -305,6 +281,30 @@ gl_renderer.cc.s:
 	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/gl_renderer.cc.s
 .PHONY : gl_renderer.cc.s
 
+packet_producer.o: packet_producer.cc.o
+.PHONY : packet_producer.o
+
+# target to build an object file
+packet_producer.cc.o:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/packet_producer.cc.o
+.PHONY : packet_producer.cc.o
+
+packet_producer.i: packet_producer.cc.i
+.PHONY : packet_producer.i
+
+# target to preprocess a source file
+packet_producer.cc.i:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/packet_producer.cc.i
+.PHONY : packet_producer.cc.i
+
+packet_producer.s: packet_producer.cc.s
+.PHONY : packet_producer.s
+
+# target to generate assembly for a file
+packet_producer.cc.s:
+	cd /home/gew/work/tutorial/Audio-Video-Player/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/av_player_core.dir/build.make src/CMakeFiles/av_player_core.dir/packet_producer.cc.s
+.PHONY : packet_producer.cc.s
+
 player.o: player.cc.o
 .PHONY : player.o
 
@@ -367,12 +367,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... av_player_core"
-	@echo "... audio_player.o"
-	@echo "... audio_player.i"
-	@echo "... audio_player.s"
-	@echo "... av_reader.o"
-	@echo "... av_reader.i"
-	@echo "... av_reader.s"
+	@echo "... audio_renderer.o"
+	@echo "... audio_renderer.i"
+	@echo "... audio_renderer.s"
 	@echo "... decoder.o"
 	@echo "... decoder.i"
 	@echo "... decoder.s"
@@ -382,6 +379,9 @@ help:
 	@echo "... gl_renderer.o"
 	@echo "... gl_renderer.i"
 	@echo "... gl_renderer.s"
+	@echo "... packet_producer.o"
+	@echo "... packet_producer.i"
+	@echo "... packet_producer.s"
 	@echo "... player.o"
 	@echo "... player.i"
 	@echo "... player.s"

@@ -20,9 +20,9 @@ struct LogConfig {
   bool async_mode;       // 磁盘写入模式
 
   LogConfig()
-      : log_dir("logs"),
-        max_file_size(10 * 1024 * 1024),
-        max_files(10),
+      : log_dir("/tmp/avplayer_logs"),
+        max_file_size(5 * 1024 * 1024),
+        max_files(3),
         async_mode(true) {}
 };
 

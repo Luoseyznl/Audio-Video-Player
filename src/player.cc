@@ -1,6 +1,6 @@
 #include "player.h"
 
-#include <GLFW/glfw3.h>  // 用于窗口事件处理
+#include <GLFW/glfw3.h>
 
 #include <algorithm>
 #include <chrono>
@@ -8,7 +8,7 @@
 #include "logger.h"
 
 extern "C" {
-#include <libavutil/time.h>
+#include <libavutil/time.h>  // AV_TIME_BASE
 }
 
 using namespace utils;
@@ -16,10 +16,9 @@ using namespace utils;
 namespace avplayer {
 
 // 同步阈值设置 (微秒)
-constexpr int64_t AV_SYNC_THRESHOLD_MIN =
-    40000;  // 40ms (低于此误差不作干预，人眼看不出)
+constexpr int64_t AV_SYNC_THRESHOLD_MIN = 40000;   // 40ms
 constexpr int64_t AV_SYNC_THRESHOLD_MAX = 100000;  // 100ms
-constexpr int64_t VIDEO_SLEEP_SLICE_US = 5000;  // 5ms，便于 seek/关窗快速打断
+constexpr int64_t VIDEO_SLEEP_SLICE_US = 5000;     // 5ms
 
 Player::Player() { LOG_INFO << "Initializing Player Engine"; }
 
@@ -31,22 +30,22 @@ Player::~Player() {
 bool Player::open(const std::string& filename) {
   LOG_INFO << "Player opening: " << filename;
 
-  // 1. 打开统一物流中心
-  if (!reader_.open(filename)) {
+  if (!packet_producer_.open(filename)) {
     LOG_ERROR << "Failed to open media file";
     changeState(State::Error);
     return false;
   }
 
-  total_duration_s_ = reader_.getDuration() / 1000000.0;
+  total_duration_s_ =
+      static_cast<double>(packet_producer_.getDuration()) / AV_TIME_BASE;
   last_video_pts_us_ = AV_NOPTS_VALUE;
   last_video_delay_us_ = 0;
   seek_target_us_ = AV_NOPTS_VALUE;
   audio_seek_pending_ = false;
   video_seek_pending_ = false;
 
-  // 2. 初始化视频链路
-  const AVStream* video_stream = reader_.getVideoStream();
+  // 初始化视频链路
+  const AVStream* video_stream = packet_producer_.getVideoStream();
   if (video_stream) {
     if (video_decoder_.open(video_stream)) {
       auto info = video_decoder_.getStreamInfo();
@@ -57,12 +56,12 @@ bool Player::open(const std::string& filename) {
     }
   }
 
-  // 3. 初始化音频链路
-  const AVStream* audio_stream = reader_.getAudioStream();
+  // 初始化音频链路
+  const AVStream* audio_stream = packet_producer_.getAudioStream();
   if (audio_stream) {
     if (audio_decoder_.open(audio_stream)) {
-      if (!audio_player_.open(audio_decoder_.getStreamInfo())) {
-        LOG_ERROR << "Failed to initialize AudioPlayer";
+      if (!audio_renderer_.open(audio_decoder_.getStreamInfo())) {
+        LOG_ERROR << "Failed to initialize AudioRenderer";
         return false;
       }
     }
@@ -73,10 +72,9 @@ bool Player::open(const std::string& filename) {
     return false;
   }
 
-  // 4. 启动物流分发线程
-  reader_.start();
+  packet_producer_.start();
 
-  // 5. 启动双引擎后台线程
+  // 启动双引擎后台线程
   running_ = true;
   if (video_stream) {
     video_thread_ = std::thread(&Player::videoDecodeAndRenderLoop, this);
@@ -94,16 +92,16 @@ void Player::close() {
   stop();
   running_ = false;
 
-  reader_.stop();
+  packet_producer_.stop();
 
   if (video_thread_.joinable()) video_thread_.join();
   if (audio_thread_.joinable()) audio_thread_.join();
 
-  reader_.close();
+  packet_producer_.close();
   video_decoder_.close();
   audio_decoder_.close();
   renderer_.close();
-  audio_player_.close();
+  audio_renderer_.close();
 
   changeState(State::Stopped);
 }
@@ -115,24 +113,24 @@ void Player::play() {
     return;
   }
 
-  audio_player_.play();  // 启动声卡
+  audio_renderer_.play();  // 启动声卡
   changeState(State::Playing);
 }
 
 void Player::pause() {
   if (state_ != State::Playing) return;
-  audio_player_.pause();  // 暂停声卡
+  audio_renderer_.pause();  // 暂停声卡
   changeState(State::Paused);
 }
 
 void Player::resume() {
   if (state_ != State::Paused) return;
-  audio_player_.play();  // 恢复声卡
+  audio_renderer_.play();  // 恢复声卡
   changeState(State::Playing);
 }
 
 void Player::stop() {
-  audio_player_.stop();  // 声卡停转，清空缓存
+  audio_renderer_.stop();  // 声卡停转，清空缓存
   changeState(State::Stopped);
   current_video_pts_ = 0;
   last_video_pts_us_ = AV_NOPTS_VALUE;
@@ -146,29 +144,22 @@ bool Player::seek(double timestamp_s) {
   std::lock_guard<std::mutex> seek_lock(seek_mutex_);
   LOG_INFO << "Seeking to " << timestamp_s << "s";
 
-  // 1. 换算为 FFmpeg 内部的微秒
-  int64_t target_us = static_cast<int64_t>(timestamp_s * 1000000.0);
-  target_us = std::clamp<int64_t>(target_us, 0,
-                                  static_cast<int64_t>(total_duration_s_ *
-                                                       1000000.0));
+  int64_t target_us = static_cast<int64_t>(timestamp_s * AV_TIME_BASE);
+  target_us = std::clamp<int64_t>(
+      target_us, 0, static_cast<int64_t>(total_duration_s_ * AV_TIME_BASE));
 
-  // 2. 暂停当前播放
   State old_state = state_;
   seek_generation_.fetch_add(1, std::memory_order_acq_rel);
   seek_target_us_ = target_us;
-  audio_seek_pending_ = reader_.getAudioStream() != nullptr;
-  video_seek_pending_ = reader_.getVideoStream() != nullptr;
+  audio_seek_pending_ = packet_producer_.getAudioStream() != nullptr;
+  video_seek_pending_ = packet_producer_.getVideoStream() != nullptr;
   pause();
 
-  // 3. 物流中心清空旧包裹并跳转
-  if (!reader_.seek(target_us)) {
-    if (old_state == State::Playing) {
-      resume();
-    }
+  if (!packet_producer_.seek(target_us)) {
+    if (old_state == State::Playing) resume();
     return false;
   }
 
-  // 4. 解码车间清空残影 (极其关键，否则画面会花屏)
   {
     std::lock_guard<std::mutex> video_lock(video_decoder_mutex_);
     video_decoder_.flush();
@@ -178,14 +169,12 @@ bool Player::seek(double timestamp_s) {
     audio_decoder_.flush();
   }
 
-  // 5. 声卡队列清空，并强制拨快/拨慢主时钟
-  audio_player_.stop();
-  audio_player_.resetClock(target_us);
+  audio_renderer_.stop();
+  audio_renderer_.resetClock(target_us);
   current_video_pts_ = target_us;
   last_video_pts_us_ = AV_NOPTS_VALUE;
   last_video_delay_us_ = 0;
 
-  // 6. 恢复之前的状态
   if (old_state == State::Playing) {
     resume();
   }
@@ -193,12 +182,10 @@ bool Player::seek(double timestamp_s) {
   return true;
 }
 
-// ==========================================
-// 引擎 1：音频解码循环 (向声卡供货)
-// ==========================================
 void Player::audioDecodeLoop() {
   LOG_INFO << "Audio decode loop started";
-  const AVStream* audio_stream = reader_.getAudioStream();
+  const AVStream* audio_stream = packet_producer_.getAudioStream();
+
   while (running_) {
     if (state_ != State::Playing) {
       std::this_thread::sleep_for(std::chrono::milliseconds(10));
@@ -206,9 +193,9 @@ void Player::audioDecodeLoop() {
     }
 
     uint64_t generation = seek_generation_.load(std::memory_order_acquire);
-    PacketPtr pkt = reader_.pullAudioPacket();
+    PacketPtr pkt = packet_producer_.pullAudioPacket();
     if (!pkt) {
-      if (reader_.isEOF()) break;
+      if (packet_producer_.isEOF()) break;
       continue;
     }
 
@@ -230,29 +217,32 @@ void Player::audioDecodeLoop() {
         }
         if (!frame) break;
         if (isSeekGenerationStale(generation)) break;
+
         int64_t pts_us = getFramePtsUs(frame.get(), audio_stream);
-        if (shouldDropFrameBeforeSeekTarget(pts_us, true)) {
-          continue;
-        }
+
+        if (shouldDropFrameBeforeSeekTarget(pts_us, true)) continue;
+
         if (audio_seek_pending_.load(std::memory_order_acquire)) {
-          audio_player_.resetClock(pts_us);
+          audio_renderer_.resetClock(pts_us);
           audio_seek_pending_ = false;
         }
-        // 把解码好的音频帧塞给声卡（如果声卡还没播完，这里会自动阻塞控速）
-        audio_player_.enqueueFrame(std::move(frame));
+
+        // AudioRenderer uses frame->pts to refresh the master audio clock.
+        // Normalize it to microseconds here so A/V sync compares the same unit.
+        if (pts_us != AV_NOPTS_VALUE) {
+          frame->pts = pts_us;
+        }
+
+        audio_renderer_.enqueueFrame(std::move(frame));
       }
     }
   }
   LOG_INFO << "Audio decode loop exited";
 }
 
-// ==========================================
-// 引擎 2：视频解码与渲染循环 (包含 A/V Sync)
-// ==========================================
 void Player::videoDecodeAndRenderLoop() {
   LOG_INFO << "Video decode & render loop started";
-
-  const AVStream* video_stream = reader_.getVideoStream();
+  const AVStream* video_stream = packet_producer_.getVideoStream();
 
   while (running_) {
     if (state_ != State::Playing) {
@@ -261,9 +251,10 @@ void Player::videoDecodeAndRenderLoop() {
     }
 
     uint64_t generation = seek_generation_.load(std::memory_order_acquire);
-    PacketPtr pkt = reader_.pullVideoPacket();
+    PacketPtr pkt = packet_producer_.pullVideoPacket();
+
     if (!pkt) {
-      if (reader_.isEOF()) {
+      if (packet_producer_.isEOF()) {
         LOG_INFO << "Video playback finished";
         changeState(State::Stopped);
         break;
@@ -290,16 +281,16 @@ void Player::videoDecodeAndRenderLoop() {
         if (!frame) break;
         if (isSeekGenerationStale(generation)) break;
 
-        // 1. 将视频帧的时间戳(PTS)统一换算为微秒(us)
         int64_t pts_us = getFramePtsUs(frame.get(), video_stream);
-        if (shouldDropFrameBeforeSeekTarget(pts_us, false)) {
-          continue;
-        }
+        if (shouldDropFrameBeforeSeekTarget(pts_us, false)) continue;
+
         video_seek_pending_ = false;
         current_video_pts_ = pts_us;
+
         int64_t frame_duration_us =
             getVideoFrameDurationUs(frame.get(), video_stream);
         int64_t frame_delay_us = frame_duration_us;
+
         if (last_video_pts_us_ != AV_NOPTS_VALUE) {
           int64_t inferred_delay = pts_us - last_video_pts_us_;
           if (inferred_delay > 0 && inferred_delay <= AV_TIME_BASE) {
@@ -310,33 +301,31 @@ void Player::videoDecodeAndRenderLoop() {
         last_video_delay_us_ = frame_delay_us;
         frame_duration_us = frame_delay_us;
 
-        // 2. 音视频同步核心逻辑 (A/V Sync)
-        if (reader_.getAudioStream()) {  // 如果有音频，视频就要服从音频管教
+        // --- 音视频同步核心算法 ---
+        if (packet_producer_.getAudioStream()) {
           int64_t audio_clock = getMasterClock();
           int64_t diff = pts_us - audio_clock;
-          int64_t sync_threshold = std::max(
-              AV_SYNC_THRESHOLD_MIN,
-              std::min(AV_SYNC_THRESHOLD_MAX, frame_duration_us / 2));
+          int64_t sync_threshold =
+              std::max(AV_SYNC_THRESHOLD_MIN,
+                       std::min(AV_SYNC_THRESHOLD_MAX, frame_duration_us / 2));
 
-          // 同步策略
           if (diff < -sync_threshold) {
-            // 视频落后太多 -> 丢帧追赶，直接 continue 不渲染
+            // 视频落后太多 -> 丢帧追赶，直接 continue 扔掉此帧不渲染
             LOG_WARN << "Video lagging behind audio by " << -diff / 1000
                      << "ms. Dropping frame.";
             continue;
           } else if (diff > sync_threshold &&
                      !interruptibleSleepFor(diff, generation)) {
+            // 视频超前太多 -> 睡一会儿等待音频
             continue;
           }
-          // 其他情况：误差在容忍范围内，直接流畅渲染
         } else if (!interruptibleSleepFor(frame_duration_us, generation)) {
+          // 纯视频文件，直接按帧率休眠
           continue;
         }
 
-        // 3. 渲染上屏
         renderer_.render(frame);
 
-        // 4. 触发 UI 回调
         if (timestamp_callback_) {
           timestamp_callback_(getCurrentTimestamp(), total_duration_s_);
         }
@@ -344,15 +333,15 @@ void Player::videoDecodeAndRenderLoop() {
     }
   }
   LOG_INFO << "Video decode & render loop exited";
-  
+
   if (renderer_.getWindow()) {
     glfwMakeContextCurrent(nullptr);
   }
 }
 
 int64_t Player::getMasterClock() const {
-  if (reader_.getAudioStream()) {
-    return audio_player_.getAudioClock();
+  if (packet_producer_.getAudioStream()) {
+    return audio_renderer_.getAudioClock();
   }
   return current_video_pts_;
 }
@@ -361,19 +350,14 @@ bool Player::isSeekGenerationStale(uint64_t generation) const {
   return generation != seek_generation_.load(std::memory_order_acquire);
 }
 
-int64_t Player::getFramePtsUs(const AVFrame* frame, const AVStream* stream) const {
+int64_t Player::getFramePtsUs(const AVFrame* frame,
+                              const AVStream* stream) const {
   if (!frame || !stream) return AV_NOPTS_VALUE;
 
   int64_t pts = frame->best_effort_timestamp;
-  if (pts == AV_NOPTS_VALUE) {
-    pts = frame->pts;
-  }
-  if (pts == AV_NOPTS_VALUE) {
-    pts = frame->pkt_dts;
-  }
-  if (pts == AV_NOPTS_VALUE) {
-    return AV_NOPTS_VALUE;
-  }
+  if (pts == AV_NOPTS_VALUE) pts = frame->pts;
+  if (pts == AV_NOPTS_VALUE) pts = frame->pkt_dts;
+  if (pts == AV_NOPTS_VALUE) return AV_NOPTS_VALUE;
 
   return av_rescale_q(pts, stream->time_base, AV_TIME_BASE_Q);
 }
@@ -382,37 +366,33 @@ int64_t Player::getVideoFrameDurationUs(const AVFrame* frame,
                                         const AVStream* video_stream) const {
   int64_t duration_us = 0;
   if (frame && frame->duration > 0) {
-    duration_us = av_rescale_q(frame->duration, video_stream->time_base,
-                               AV_TIME_BASE_Q);
+    duration_us =
+        av_rescale_q(frame->duration, video_stream->time_base, AV_TIME_BASE_Q);
   }
-
   if (duration_us <= 0 && video_stream->avg_frame_rate.num > 0 &&
       video_stream->avg_frame_rate.den > 0) {
     duration_us =
         av_rescale_q(1, av_inv_q(video_stream->avg_frame_rate), AV_TIME_BASE_Q);
   }
-
   if (duration_us <= 0 && video_stream->r_frame_rate.num > 0 &&
       video_stream->r_frame_rate.den > 0) {
     duration_us =
         av_rescale_q(1, av_inv_q(video_stream->r_frame_rate), AV_TIME_BASE_Q);
   }
-
   if (duration_us <= 0 && last_video_delay_us_ > 0) {
     duration_us = last_video_delay_us_;
   }
-
   if (duration_us <= 0) {
-    duration_us = 40000;
+    duration_us = 40000;  // 兜底 25fps
   }
-
   return duration_us;
 }
 
 bool Player::interruptibleSleepFor(int64_t sleep_us, uint64_t generation) {
   int64_t remaining_us = std::max<int64_t>(0, sleep_us);
   while (remaining_us > 0) {
-    if (!running_ || state_ != State::Playing || isSeekGenerationStale(generation)) {
+    if (!running_ || state_ != State::Playing ||
+        isSeekGenerationStale(generation)) {
       return false;
     }
 
@@ -424,14 +404,11 @@ bool Player::interruptibleSleepFor(int64_t sleep_us, uint64_t generation) {
 }
 
 bool Player::shouldDropFrameBeforeSeekTarget(int64_t pts_us, bool is_audio) {
-  if (pts_us == AV_NOPTS_VALUE) {
-    return false;
-  }
+  if (pts_us == AV_NOPTS_VALUE) return false;
 
-  std::atomic<bool>& pending = is_audio ? audio_seek_pending_ : video_seek_pending_;
-  if (!pending.load(std::memory_order_acquire)) {
-    return false;
-  }
+  std::atomic<bool>& pending =
+      is_audio ? audio_seek_pending_ : video_seek_pending_;
+  if (!pending.load(std::memory_order_acquire)) return false;
 
   int64_t target_us = seek_target_us_.load(std::memory_order_acquire);
   if (target_us == AV_NOPTS_VALUE) {
@@ -439,6 +416,7 @@ bool Player::shouldDropFrameBeforeSeekTarget(int64_t pts_us, bool is_audio) {
     return false;
   }
 
+  // 如果解出来的帧比我们的目标时间还早，扔掉继续解！
   if (pts_us < target_us) {
     return true;
   }
@@ -456,19 +434,19 @@ void Player::changeState(State new_state) {
 }
 
 double Player::getCurrentTimestamp() const {
-  return getMasterClock() / 1000000.0;
+  return static_cast<double>(getMasterClock()) / AV_TIME_BASE;
 }
 
 bool Player::isFinished() const {
-  return state_ == State::Stopped && reader_.isEOF();
+  return state_ == State::Stopped && packet_producer_.isEOF();
 }
 
 double Player::getDuration() const { return total_duration_s_; }
 
 GLFWwindow* Player::getWindow() const { return renderer_.getWindow(); }
 
-void Player::setVolume(double norm) { audio_player_.setVolume(norm); }
+void Player::setVolume(double norm) { audio_renderer_.setVolume(norm); }
 
-double Player::getVolume() const { return audio_player_.getVolume(); }
+double Player::getVolume() const { return audio_renderer_.getVolume(); }
 
 }  // namespace avplayer

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=AVPlayer
+Comment=My custom high-performance video player
+Exec=AVPlayer /usr/local/bin/AVPlayer
+Icon=video-x-generic
+Terminal=false
+Categories=AudioVideo;Video;Player;Qt;
+MimeType=video/mp4;video/mpeg;video/x-matroska;video/x-msvideo;video/quicktime;
+Keywords=video;player;ffmpeg;
