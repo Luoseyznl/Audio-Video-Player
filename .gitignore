@@ -2,6 +2,10 @@ build/*
 .vscode/*
 assets/*
 docs/*
+!docs/*/
+docs/*/*
+!docs/**/*.md
+!docs/*/**/*.png
 
 # Prerequisites
 *.d
