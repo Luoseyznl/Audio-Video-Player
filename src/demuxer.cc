@@ -12,7 +12,7 @@ using namespace utils;
 namespace avplayer {
 
 Demuxer::~Demuxer() {
-  LOG_INFO << "Demuxer Destroying";
+  LOG_INFO << "Destroying Demuxer";
   close();
 }
 
@@ -30,7 +30,7 @@ bool Demuxer::open(const std::string& filename) {
   }
   format_ctx_.reset(raw_ctx);
 
-  // 2. 探测码流信息
+  // 2. 探测码流信息（看是否可读）
   ret = avformat_find_stream_info(format_ctx_.get(), nullptr);
   if (ret < 0) {
     char errbuf[AV_ERROR_MAX_STRING_SIZE];
@@ -124,7 +124,8 @@ bool Demuxer::seek(int64_t timestamp_us) {
   if (ret < 0) {
     char errbuf[AV_ERROR_MAX_STRING_SIZE];
     av_strerror(ret, errbuf, sizeof(errbuf));
-    LOG_ERROR << "Failed to seek to " << timestamp_us << "us. Reason: " << errbuf;
+    LOG_ERROR << "Failed to seek to " << timestamp_us
+              << "us. Reason: " << errbuf;
     return false;
   }
 

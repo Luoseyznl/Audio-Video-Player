@@ -12,10 +12,11 @@ using namespace utils;
 namespace avplayer {
 
 Decoder::~Decoder() {
-  LOG_INFO << "Decoder Destroying";
+  LOG_INFO << "Destroying Decoder";
   close();
 }
 
+// 实例化解码器上下文 AVCodecContext 并传入解码参数
 bool Decoder::open(const AVStream* stream) {
   if (!stream || !stream->codecpar) {
     LOG_ERROR << "Failed to open decoder. Reason: Invalid stream or codecpar";
@@ -96,10 +97,11 @@ void Decoder::close() {
 void Decoder::flush() {
   if (codec_ctx_) {
     LOG_INFO << "Flushing decoder buffers";
-    avcodec_flush_buffers(codec_ctx_.get());
+    avcodec_flush_buffers(codec_ctx_.get());  // 丢弃解码器内的残留帧
   }
 }
 
+// 传入数据包，若传入 nullptr 代表排空残留帧（Drain Mode）
 bool Decoder::pushPacket(const PacketPtr& pkt) {
   if (!codec_ctx_) return false;
 
@@ -108,10 +110,12 @@ bool Decoder::pushPacket(const PacketPtr& pkt) {
   if (ret == 0) {
     return true;
   } else if (ret == AVERROR(EAGAIN)) {
+    // EAGAIN 表示解码器缓冲区已满
     LOG_DEBUG << "Decoder buffer full, packet rejected (EAGAIN)";
     return false;
   } else if (ret == AVERROR_EOF) {
-    LOG_DEBUG << "Decoder already in EOF state, packet ignored";
+    // EOF 表示解码器处于 Drain Mode
+    LOG_DEBUG << "Decoder in Drain Mode, packet ignored";
     return false;
   }
 
@@ -121,6 +125,7 @@ bool Decoder::pushPacket(const PacketPtr& pkt) {
   return false;
 }
 
+// 从解码器取出原始帧，若返回 nullptr 代表解码器饥饿或已排空
 FramePtr Decoder::pullFrame() {
   if (!codec_ctx_) return nullptr;
 
@@ -135,10 +140,9 @@ FramePtr Decoder::pullFrame() {
   if (ret == 0) {
     return frame;
   } else if (ret == AVERROR(EAGAIN)) {
-    // 解码器饥饿，需要再次 pushPacket
     return nullptr;
   } else if (ret == AVERROR_EOF) {
-    LOG_INFO << "Decoder drained (EOF)";  // 文件 EOF，解码完成
+    LOG_INFO << "Decoder drained (EOF)";
     return nullptr;
   }
 

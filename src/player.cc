@@ -16,9 +16,9 @@ using namespace utils;
 namespace avplayer {
 
 // 同步阈值设置 (微秒)
-constexpr int64_t AV_SYNC_THRESHOLD_MIN = 40000;   // 40ms
-constexpr int64_t AV_SYNC_THRESHOLD_MAX = 100000;  // 100ms
-constexpr int64_t VIDEO_SLEEP_SLICE_US = 5000;     // 5ms
+constexpr int64_t AV_SYNC_THRESHOLD_MIN = 40000;   // 轻微落后，可以接受
+constexpr int64_t AV_SYNC_THRESHOLD_MAX = 100000;  // 严重脱节，强制丢帧
+constexpr int64_t VIDEO_SLEEP_SLICE_US = 5000;     // 视频线程休眠切片时长
 
 Player::Player() { LOG_INFO << "Initializing Player Engine"; }
 
@@ -44,7 +44,7 @@ bool Player::open(const std::string& filename) {
   audio_seek_pending_ = false;
   video_seek_pending_ = false;
 
-  // 初始化视频链路
+  // 1. 初始化视频渲染器
   const AVStream* video_stream = packet_producer_.getVideoStream();
   if (video_stream) {
     if (video_decoder_.open(video_stream)) {
@@ -56,11 +56,12 @@ bool Player::open(const std::string& filename) {
     }
   }
 
-  // 初始化音频链路
+  // 2. 初始化音频渲染器
   const AVStream* audio_stream = packet_producer_.getAudioStream();
   if (audio_stream) {
     if (audio_decoder_.open(audio_stream)) {
-      if (!audio_renderer_.open(audio_decoder_.getStreamInfo())) {
+      if (!audio_renderer_.open(audio_decoder_.getStreamInfo(),
+                                audio_stream->time_base)) {
         LOG_ERROR << "Failed to initialize AudioRenderer";
         return false;
       }
@@ -72,9 +73,10 @@ bool Player::open(const std::string& filename) {
     return false;
   }
 
+  // 启动取包引擎
   packet_producer_.start();
 
-  // 启动双引擎后台线程
+  // 启动音视频解码渲染双引擎
   running_ = true;
   if (video_stream) {
     video_thread_ = std::thread(&Player::videoDecodeAndRenderLoop, this);
@@ -83,7 +85,7 @@ bool Player::open(const std::string& filename) {
     audio_thread_ = std::thread(&Player::audioDecodeLoop, this);
   }
 
-  changeState(State::Stopped);
+  changeState(State::Stopped);  // 取包和解码流水线开始预热，但播放器还并未开始
   LOG_INFO << "Player initialization complete";
   return true;
 }
@@ -149,7 +151,7 @@ bool Player::seek(double timestamp_s) {
       target_us, 0, static_cast<int64_t>(total_duration_s_ * AV_TIME_BASE));
 
   State old_state = state_;
-  seek_generation_.fetch_add(1, std::memory_order_acq_rel);
+  seek_generation_.fetch_add(1, std::memory_order_acq_rel);  // 跳转世代号 +1
   seek_target_us_ = target_us;
   audio_seek_pending_ = packet_producer_.getAudioStream() != nullptr;
   video_seek_pending_ = packet_producer_.getVideoStream() != nullptr;
@@ -162,15 +164,15 @@ bool Player::seek(double timestamp_s) {
 
   {
     std::lock_guard<std::mutex> video_lock(video_decoder_mutex_);
-    video_decoder_.flush();
+    video_decoder_.flush();  // 清空解码器残留 B 帧
   }
   {
     std::lock_guard<std::mutex> audio_lock(audio_decoder_mutex_);
-    audio_decoder_.flush();
+    audio_decoder_.flush();  // 清空解码器残留 B 帧
   }
 
   audio_renderer_.stop();
-  audio_renderer_.resetClock(target_us);
+  audio_renderer_.resetClock(target_us);  // 重置声卡缓存与主时钟锚点
   current_video_pts_ = target_us;
   last_video_pts_us_ = AV_NOPTS_VALUE;
   last_video_delay_us_ = 0;
@@ -203,7 +205,7 @@ void Player::audioDecodeLoop() {
     {
       std::lock_guard<std::mutex> lock(audio_decoder_mutex_);
       if (!isSeekGenerationStale(generation)) {
-        pushed = audio_decoder_.pushPacket(pkt);
+        pushed = audio_decoder_.pushPacket(pkt);  // 跳转后重新解码
       }
     }
 
@@ -216,21 +218,15 @@ void Player::audioDecodeLoop() {
           frame = audio_decoder_.pullFrame();
         }
         if (!frame) break;
-        if (isSeekGenerationStale(generation)) break;
+        if (isSeekGenerationStale(generation)) break;  // 跳转后中断取帧
 
         int64_t pts_us = getFramePtsUs(frame.get(), audio_stream);
 
-        if (shouldDropFrameBeforeSeekTarget(pts_us, true)) continue;
+        if (shouldDropFrameBeforeSeekTarget(pts_us, true)) continue;  // 对齐
 
         if (audio_seek_pending_.load(std::memory_order_acquire)) {
-          audio_renderer_.resetClock(pts_us);
+          audio_renderer_.resetClock(pts_us);  // 时钟同步
           audio_seek_pending_ = false;
-        }
-
-        // AudioRenderer uses frame->pts to refresh the master audio clock.
-        // Normalize it to microseconds here so A/V sync compares the same unit.
-        if (pts_us != AV_NOPTS_VALUE) {
-          frame->pts = pts_us;
         }
 
         audio_renderer_.enqueueFrame(std::move(frame));
@@ -281,12 +277,14 @@ void Player::videoDecodeAndRenderLoop() {
         if (!frame) break;
         if (isSeekGenerationStale(generation)) break;
 
+        // 1. 获取微秒级时间戳
         int64_t pts_us = getFramePtsUs(frame.get(), video_stream);
         if (shouldDropFrameBeforeSeekTarget(pts_us, false)) continue;
 
         video_seek_pending_ = false;
         current_video_pts_ = pts_us;
 
+        // 2. 推导当前帧的持续时间
         int64_t frame_duration_us =
             getVideoFrameDurationUs(frame.get(), video_stream);
         int64_t frame_delay_us = frame_duration_us;
@@ -301,7 +299,7 @@ void Player::videoDecodeAndRenderLoop() {
         last_video_delay_us_ = frame_delay_us;
         frame_duration_us = frame_delay_us;
 
-        // --- 音视频同步核心算法 ---
+        // --- 3. 音视频同步核心算法 ---
         if (packet_producer_.getAudioStream()) {
           int64_t audio_clock = getMasterClock();
           int64_t diff = pts_us - audio_clock;
@@ -310,17 +308,17 @@ void Player::videoDecodeAndRenderLoop() {
                        std::min(AV_SYNC_THRESHOLD_MAX, frame_duration_us / 2));
 
           if (diff < -sync_threshold) {
-            // 视频落后太多 -> 丢帧追赶，直接 continue 扔掉此帧不渲染
+            // 严重脱节 -> 丢帧追赶
             LOG_WARN << "Video lagging behind audio by " << -diff / 1000
                      << "ms. Dropping frame.";
             continue;
           } else if (diff > sync_threshold &&
                      !interruptibleSleepFor(diff, generation)) {
-            // 视频超前太多 -> 睡一会儿等待音频
+            // 严重超前 -> 等待音频
             continue;
           }
         } else if (!interruptibleSleepFor(frame_duration_us, generation)) {
-          // 纯视频文件，直接按帧率休眠
+          // 纯视频文件，按持续时间休眠
           continue;
         }
 

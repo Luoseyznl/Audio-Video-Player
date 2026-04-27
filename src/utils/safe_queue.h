@@ -62,8 +62,8 @@ class SafeQueue {
       std::lock_guard<std::mutex> lock(mutex_);
       running_ = false;
     }
-    cond_empty_.notify_all();
-    cond_full_.notify_all();
+    cond_empty_.notify_all();  // 唤醒阻塞的读线程
+    cond_full_.notify_all();   // 唤醒阻塞的写线程
   }
 
   size_t size() const {

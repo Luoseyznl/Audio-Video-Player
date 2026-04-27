@@ -58,7 +58,7 @@ class PacketProducer {
   std::atomic<bool> eof_{false};
 
   std::atomic<bool> seek_req_{false};
-  std::atomic<int64_t> seek_target_{0};
+  std::atomic<int64_t> seek_timestamp_us_{0};  //
 };
 
 }  // namespace avplayer

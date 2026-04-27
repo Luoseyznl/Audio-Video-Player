@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL2/SDL.h>
+#include <SDL2/SDL.h>  // Simple DirectMedia Layer
 
 #include <atomic>
 #include <vector>
@@ -19,14 +19,14 @@ class AudioRenderer {
   AudioRenderer(const AudioRenderer&) = delete;
   AudioRenderer& operator=(const AudioRenderer&) = delete;
 
-  bool open(const Decoder::StreamInfo& info);
+  bool open(const Decoder::StreamInfo& info, AVRational time_base);
   void close();
   void play();
   void pause();
   void stop();
 
-  int64_t getAudioClock() const { return audio_clock_; }
-  void resetClock(int64_t pts_us) { audio_clock_ = pts_us; }
+  int64_t getAudioClock() const { return audio_clock_us_; }
+  void resetClock(int64_t pts_us) { audio_clock_us_ = pts_us; }
 
   void setVolume(double norm);
   double getVolume() const;
@@ -44,8 +44,9 @@ class AudioRenderer {
   int out_channels_ = 2;
   int out_sample_rate_ = 44100;
   AVSampleFormat out_sample_fmt_ = AV_SAMPLE_FMT_S16;
+  AVRational time_base_ = {0, 1};
 
-  std::atomic<int64_t> audio_clock_{0};
+  std::atomic<int64_t> audio_clock_us_{0};
 
   utils::SafeQueue<FramePtr> frame_queue_;
 
