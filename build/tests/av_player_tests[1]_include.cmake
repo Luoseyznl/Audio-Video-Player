@@ -1,5 +1,0 @@
-if(EXISTS "/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests[1]_tests.cmake")
-  include("/home/gew/work/tutorial/Audio-Video-Player/build/tests/av_player_tests[1]_tests.cmake")
-else()
-  add_test(av_player_tests_NOT_BUILT av_player_tests_NOT_BUILT)
-endif()

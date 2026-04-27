@@ -19,8 +19,8 @@ class Demuxer {
   bool open(const std::string& filename);  // 阻塞等待
   void close();                            // 幂等释放
 
-  PacketPtr pullPacket();        // 阻塞取包
-  bool seek(int64_t timestamp);  // 阻塞跳转后向最近时刻（us）
+  PacketPtr pullPacket();           // 阻塞取包
+  bool seek(int64_t timestamp_us);  // 阻塞跳转后向最近时刻（us）
 
   AVStream* getAVStream(MediaType type) const;
   int64_t getDuration() const;  // 总时长（us）

@@ -100,7 +100,7 @@ PacketPtr Demuxer::pullPacket() {
   return pkt;
 }
 
-bool Demuxer::seek(int64_t timestamp) {
+bool Demuxer::seek(int64_t timestamp_us) {
   if (!format_ctx_) return false;
 
   int stream_index =
@@ -112,11 +112,11 @@ bool Demuxer::seek(int64_t timestamp) {
 
   AVStream* stream = format_ctx_->streams[stream_index];
 
-  // 1. 将用户传入的微秒 (AV_TIME_BASE_Q) 转换为码流的刻度 (time_base)
+  // 1. 将用户传入的微秒 (AV_TIME_BASE_Q) 转换为码流的时间刻度
   int64_t seek_target =
-      av_rescale_q(timestamp, AV_TIME_BASE_Q, stream->time_base);
+      av_rescale_q(timestamp_us, AV_TIME_BASE_Q, stream->time_base);
 
-  LOG_DEBUG << "Demxuer first seeking to " << timestamp << "us ";
+  LOG_DEBUG << "Demxuer first seeking to " << timestamp_us << "us ";
 
   // 2. 跳转至目标时间戳的后向最近关键包
   int ret = av_seek_frame(format_ctx_.get(), stream_index, seek_target,
@@ -124,7 +124,7 @@ bool Demuxer::seek(int64_t timestamp) {
   if (ret < 0) {
     char errbuf[AV_ERROR_MAX_STRING_SIZE];
     av_strerror(ret, errbuf, sizeof(errbuf));
-    LOG_ERROR << "Failed to seek to " << timestamp << "us. Reason: " << errbuf;
+    LOG_ERROR << "Failed to seek to " << timestamp_us << "us. Reason: " << errbuf;
     return false;
   }
 
