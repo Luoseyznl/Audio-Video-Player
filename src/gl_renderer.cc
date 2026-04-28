@@ -45,8 +45,6 @@ void main() {
 )";
 
 bool GLRenderer::open(int width, int height, const char* title) {
-  LOG_INFO << "Initializing GL renderer with " << width << "x" << height;
-
   video_width_ = width;
   video_height_ = height;
 

@@ -1,0 +1,45 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          cmake \
+          build-essential \
+          libavcodec-dev \
+          libavformat-dev \
+          libavutil-dev \
+          libswscale-dev \
+          libswresample-dev \
+          libsdl2-dev \
+          libglfw3-dev \
+          libglew-dev \
+          libgl1-mesa-dev \
+          xvfb
+
+    - name: Configure CMake
+      # 使用 Release 模式确保性能测试逻辑也能通过
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config Release -j $(nproc)
+
+    - name: Run Tests
+      # 使用 xvfb-run 是因为你的测试可能涉及到 OpenGL 上下文初始化，
+      # GitHub 的云服务器没有物理显示器，xvfb 可以模拟虚拟显存。
+      run: |
+        cd build
+        xvfb-run ctest --output-on-failure

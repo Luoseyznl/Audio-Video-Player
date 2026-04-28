@@ -11,16 +11,8 @@ using namespace utils;
 
 namespace avplayer {
 
-AudioRenderer::~AudioRenderer() {
-  LOG_INFO << "Destroying AudioRenderer";
-  close();
-}
-
 bool AudioRenderer::open(const Decoder::StreamInfo& info,
                          AVRational time_base) {
-  LOG_INFO << "Initializing AudioRenderer with " << info.sample_rate << "Hz, "
-           << info.channels << " channels";
-
   // 1. 初始化 SDL 音频子系统（声卡回调机制）
   if (SDL_WasInit(SDL_INIT_AUDIO) == 0) {
     if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0) {
@@ -76,7 +68,6 @@ bool AudioRenderer::open(const Decoder::StreamInfo& info,
   audio_clock_us_ = 0;
   time_base_ = time_base;
 
-  LOG_INFO << "AudioRenderer successfully opened";
   return true;
 }
 
@@ -103,14 +94,14 @@ void AudioRenderer::close() {
 void AudioRenderer::play() {
   if (device_id_) {
     SDL_PauseAudioDevice(device_id_, 0);  // 解开静音锁
-    LOG_INFO << "Audio playback started";
+    LOG_DEBUG << "Audio playback started";
   }
 }
 
 void AudioRenderer::pause() {
   if (device_id_) {
     SDL_PauseAudioDevice(device_id_, 1);  // 锁上静音锁
-    LOG_INFO << "Audio playback paused";
+    LOG_DEBUG << "Audio playback paused";
   }
 }
 
@@ -220,6 +211,11 @@ void AudioRenderer::setVolume(double norm) {
 
 double AudioRenderer::getVolume() const {
   return static_cast<double>(volume_) / SDL_MIX_MAXVOLUME;
+}
+
+bool AudioRenderer::isPlaying() const {
+  if (device_id_ == 0) return false;
+  return SDL_GetAudioDeviceStatus(device_id_) == SDL_AUDIO_PLAYING;
 }
 
 }  // namespace avplayer

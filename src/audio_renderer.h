@@ -14,7 +14,7 @@ namespace avplayer {
 class AudioRenderer {
  public:
   AudioRenderer() = default;
-  ~AudioRenderer();
+  ~AudioRenderer() { close(); };
 
   AudioRenderer(const AudioRenderer&) = delete;
   AudioRenderer& operator=(const AudioRenderer&) = delete;
@@ -27,9 +27,16 @@ class AudioRenderer {
 
   int64_t getAudioClock() const { return audio_clock_us_; }
   void resetClock(int64_t pts_us) { audio_clock_us_ = pts_us; }
+  void lockDevice() {
+    if (device_id_) SDL_LockAudioDevice(device_id_);
+  }
+  void unlockDevice() {
+    if (device_id_) SDL_UnlockAudioDevice(device_id_);
+  }
 
   void setVolume(double norm);
   double getVolume() const;
+  bool isPlaying() const;
 
   void enqueueFrame(FramePtr frame);
 

@@ -2,7 +2,8 @@ set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
 include(FetchContent)
 fetchcontent_declare(
     googletest
-    URL file:///home/gew/Downloads/googletest-main.zip
+    # URL file:///home/gew/Downloads/googletest-main.zip
+    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
     DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 fetchcontent_makeavailable(googletest)

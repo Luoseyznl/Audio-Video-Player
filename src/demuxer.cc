@@ -11,14 +11,7 @@ using namespace utils;
 
 namespace avplayer {
 
-Demuxer::~Demuxer() {
-  LOG_INFO << "Destroying Demuxer";
-  close();
-}
-
 bool Demuxer::open(const std::string& filename) {
-  LOG_INFO << "Demuxer opening media file: " << filename;
-
   // 1. 获取格式上下文
   AVFormatContext* raw_ctx = nullptr;
   int ret = avformat_open_input(&raw_ctx, filename.c_str(), nullptr, nullptr);
@@ -49,16 +42,17 @@ bool Demuxer::open(const std::string& filename) {
   audio_stream_index_ = av_find_best_stream(
       format_ctx_.get(), AVMEDIA_TYPE_AUDIO, -1, -1, nullptr, 0);
 
-  LOG_INFO << "Video stream at index: " << video_stream_index_
-           << ", Audio stream at index: " << audio_stream_index_;
+  LOG_INFO << "Demuxer detect duration: "
+           << format_ctx_->duration / AV_TIME_BASE
+           << "s, Video stream at: " << video_stream_index_
+           << ", Audio stream at: " << audio_stream_index_;
 
   return true;
 }
 
 void Demuxer::close() {
   if (format_ctx_) {
-    LOG_INFO << "Closing demuxer...";
-    format_ctx_.reset();  // 显式释放格式上下文（允许 Demuxer 复用）
+    format_ctx_.reset();
   }
 
   video_stream_index_ = -1;
@@ -87,7 +81,7 @@ PacketPtr Demuxer::pullPacket() {
     if (ret == AVERROR_EOF) {
       if (!eof_) {
         eof_ = true;
-        LOG_INFO << "Reached End Of File";
+        LOG_INFO << "Demuxer reached EOF";
       }
     } else {
       char errbuf[AV_ERROR_MAX_STRING_SIZE];
@@ -116,7 +110,7 @@ bool Demuxer::seek(int64_t timestamp_us) {
   int64_t seek_target =
       av_rescale_q(timestamp_us, AV_TIME_BASE_Q, stream->time_base);
 
-  LOG_DEBUG << "Demxuer first seeking to " << timestamp_us << "us ";
+  LOG_INFO << "Demxuer seeking to " << timestamp_us << " us";
 
   // 2. 跳转至目标时间戳的后向最近关键包
   int ret = av_seek_frame(format_ctx_.get(), stream_index, seek_target,
@@ -125,7 +119,7 @@ bool Demuxer::seek(int64_t timestamp_us) {
     char errbuf[AV_ERROR_MAX_STRING_SIZE];
     av_strerror(ret, errbuf, sizeof(errbuf));
     LOG_ERROR << "Failed to seek to " << timestamp_us
-              << "us. Reason: " << errbuf;
+              << " us. Reason: " << errbuf;
     return false;
   }
 

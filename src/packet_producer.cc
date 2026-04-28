@@ -8,25 +8,12 @@ using namespace utils;
 
 namespace avplayer {
 
-PacketProducer::PacketProducer(size_t video_queue_size, size_t audio_queue_size)
-    : video_queue_(video_queue_size), audio_queue_(audio_queue_size) {
-  LOG_INFO << "PacketProducer created. Video Queue: " << video_queue_size
-           << ", Audio Queue: " << audio_queue_size;
-}
-
-PacketProducer::~PacketProducer() {
-  LOG_INFO << "Destroying PacketProducer";
-  close();
-}
-
 bool PacketProducer::open(const std::string& filename) {
   if (!demuxer_.open(filename)) {
     LOG_ERROR << "PacketProducer failed to open demuxer for: " << filename;
     return false;
   }
-
   eof_ = false;
-  LOG_INFO << "PacketProducer successfully opened: " << filename;
   return true;
 }
 
@@ -37,30 +24,23 @@ void PacketProducer::close() {
   video_queue_.clear();  // 清空残留包
   audio_queue_.clear();
   eof_ = false;
-  LOG_INFO << "PacketProducer closed";
 }
 
 void PacketProducer::start() {
   if (running_) return;
-
-  LOG_INFO << "Starting PacketProducer thread...";
   running_ = true;
   paused_ = false;
   eof_ = false;
   seek_req_ = false;
-
   thread_ = std::thread(&PacketProducer::produceLoop, this);  // 启动取包线程
+  LOG_DEBUG << "PacketProducer started";
 }
 
 void PacketProducer::stop() {
   if (!running_) return;
-
-  LOG_INFO << "Stopping PacketProducer thread...";
   running_ = false;
-
   video_queue_.stop();  // 停止读写，并唤醒阻塞的读写线程
   audio_queue_.stop();
-
   if (thread_.joinable()) {
     thread_.join();
   }
@@ -68,18 +48,15 @@ void PacketProducer::stop() {
 
 void PacketProducer::pause(bool pause) {
   paused_ = pause;
-  LOG_INFO << (pause ? "PacketProducer paused" : "PacketProducer resumed");
+  LOG_DEBUG << (pause ? "PacketProducer paused" : "PacketProducer resumed");
 }
 
 bool PacketProducer::seek(int64_t timestamp_us) {
   LOG_INFO << "PacketProducer seeking to " << timestamp_us << " us";
-
   seek_timestamp_us_ = timestamp_us;
   seek_req_ = true;
-
   video_queue_.clear();  // 丢弃残留包
   audio_queue_.clear();
-
   return true;  // 成功发出跳转请求，由 produceLoop 实施跳转
 }
 
@@ -96,20 +73,14 @@ PacketPtr PacketProducer::pullAudioPacket() {
 }
 
 void PacketProducer::produceLoop() {
-  LOG_INFO << "PacketProducer background thread running";
-
   int video_idx = demuxer_.getStreamIndex(MediaType::Video);
   int audio_idx = demuxer_.getStreamIndex(MediaType::Audio);
 
   while (running_) {
     if (seek_req_) {
-      LOG_INFO << "PacketProducer seeking to " << seek_timestamp_us_ << "us";
-
       demuxer_.seek(seek_timestamp_us_);  // 阻塞后向跳转
-
-      video_queue_.clear();  // 再次清空，防御式编程
+      video_queue_.clear();               // 再次清空，防御式编程
       audio_queue_.clear();
-
       eof_ = false;
       seek_req_ = false;
     }
@@ -123,9 +94,8 @@ void PacketProducer::produceLoop() {
 
     if (!pkt) {
       if (demuxer_.isEOF() && !eof_) {
+        LOG_INFO << "PacketProducer reached EOF";
         eof_ = true;
-        LOG_INFO << "PacketProducer dispatching EOF signal to queues.";
-
         if (video_idx >= 0) video_queue_.push(nullptr);  // decoder drain
         if (audio_idx >= 0) audio_queue_.push(nullptr);
       }
@@ -143,7 +113,7 @@ void PacketProducer::produceLoop() {
     }
   }
 
-  LOG_INFO << "PacketProducer background thread exited";
+  LOG_INFO << "Packet produce loop exited";
 }
 
 }  // namespace avplayer

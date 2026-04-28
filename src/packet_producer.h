@@ -13,8 +13,9 @@ namespace avplayer {
 class PacketProducer {
  public:
   explicit PacketProducer(size_t video_queue_size = 200,
-                          size_t audio_queue_size = 500);
-  ~PacketProducer();
+                          size_t audio_queue_size = 500)
+      : video_queue_(video_queue_size), audio_queue_(audio_queue_size) {}
+  ~PacketProducer() { close(); }
 
   PacketProducer(const PacketProducer&) = delete;
   PacketProducer& operator=(const PacketProducer&) = delete;

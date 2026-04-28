@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <atomic>
 #include <csignal>
+#include <filesystem>
 #include <iostream>
 #include <string>
 #include <thread>
@@ -13,19 +14,16 @@
 
 using namespace avplayer;
 
-// 仅用于接收 Ctrl+C 信号的原子标志位
 static std::atomic<bool> g_quit{false};
 
-// 用于主线程与解码线程安全同步时间的变量
 static std::atomic<double> g_current_time_s{0.0};
 static std::atomic<double> g_total_duration_s{0.0};
 
-// 捕获 Ctrl+C 信号，优雅退出 (信号处理函数中只允许极简的赋值操作)
 static void signal_handler(int signum) {
   if (signum == SIGINT) {
     std::cout << "\n[System] Received SIGINT, initiating graceful shutdown..."
               << std::endl;
-    g_quit = true;
+    g_quit = true;  // Ctrl + C 时通过标志位实现优雅退出
   }
 }
 
@@ -44,7 +42,6 @@ void printUsage(const char* programName) {
   std::cout << "========================================" << std::endl;
 }
 
-// 格式化时间辅助函数 (将秒转换成 HH:MM:SS)
 std::string formatTime(double timeInSeconds) {
   int total_seconds = static_cast<int>(timeInSeconds);
   int hours = total_seconds / 3600;
@@ -56,7 +53,6 @@ std::string formatTime(double timeInSeconds) {
   return std::string(buf);
 }
 
-// 键盘事件处理逻辑
 void handleKeyPress(Player& player, int key) {
   switch (key) {
     case GLFW_KEY_SPACE:
@@ -104,7 +100,6 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action,
                  int mods) {
   if (action != GLFW_PRESS) return;
 
-  // 提取我们之前绑定的 Player 指针，完美取代全局变量
   Player* player = static_cast<Player*>(glfwGetWindowUserPointer(window));
   if (player) {
     handleKeyPress(*player, key);
@@ -113,76 +108,75 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action,
 
 int main(int argc, char* argv[]) {
   utils::LogConfig log_config;
-  log_config.log_dir = "./avplayer_logs";
-  log_config.max_file_size = 10 * 1024 * 1024;  // 10MB
+  log_config.max_file_size = 10 * 1024 * 1024;
   log_config.max_files = 5;
-  log_config.async_mode = true;
+  std::string target_dir = "/tmp/avplayer_logs";
+  try {
+    auto log_path = std::filesystem::temp_directory_path() / "avplayer_logs";
+    if (!std::filesystem::exists(log_path))
+      std::filesystem::create_directory(log_path);
+    target_dir = log_path.string();
+  } catch (...) { /* 保持默认 */
+  }
 
+  log_config.log_dir = target_dir;
   utils::Logger::init(log_config);
   utils::Logger::setGlobalLevel(utils::LogLevel::INFO);
+
+  LOG_INFO << "Starting AVPlayer v1.0, LogDir: " << target_dir;
 
   if (argc != 2) {
     printUsage(argv[0]);
     return 1;
   }
 
-  // 注册 Ctrl+C 拦截
-  signal(SIGINT, signal_handler);
+  signal(SIGINT, signal_handler);  // 注册 Ctrl+C 处理函数
 
   Player player;
 
-  LOG_INFO << "Loading media: " << argv[1];
-
   if (!player.open(argv[1])) {
-    LOG_FATAL << "Failed to open media file";
-    std::cerr << "[Error] Failed to open media file!" << std::endl;
+    LOG_FATAL << "Failed to open: " << argv[1];
+    std::cerr << "Failed to open: " << argv[1] << std::endl;
     return -1;
   }
 
+  LOG_INFO << "Successfully Open: " << argv[1];
+
   GLFWwindow* window = player.getWindow();
   if (window) {
-    // 【核心优化】：将 player 对象与 window 绑定
-    glfwSetWindowUserPointer(window, &player);
-    glfwSetKeyCallback(window, keyCallback);
+    glfwSetWindowUserPointer(window, &player);  // 绑定指针
+    glfwSetKeyCallback(window, keyCallback);    // 按键回调
   }
 
-  // 后台解码线程的回调只负责更新原子变量，绝不直接操作 UI
+  // 在视频帧解码渲染线程里，通过回调取得当前时间和总时间（与用户看到的画面保持一致）
   player.setTimestampCallback([](double current_s, double duration_s) {
     g_current_time_s = current_s;
     g_total_duration_s = duration_s;
   });
 
-  printUsage(argv[0]);
   player.play();
 
-  // ==========================================
-  // 主事件轮询循环 (UI 线程的核心)
-  // ==========================================
   std::string last_title = "";
-
   while (!g_quit) {
-    // 1. 监听操作系统级事件 (必须在主线程执行)
     if (window) {
-      glfwPollEvents();
+      glfwPollEvents();  // 主线程负责监听系统事件
       if (glfwWindowShouldClose(window)) {
         LOG_INFO << "Window closed by user";
         break;
       }
     }
 
-    // 2. 检查播放状态
+    // 检查播放状态
     if (player.isFinished()) {
       break;
     }
 
-    // 3. 安全更新 UI 状态 (将 GLFW 操作移回主线程)
+    // 在时间标题变化时调用系统 API 进行更新（每秒一次）
     std::string new_title = "AVPlayer - " + formatTime(g_current_time_s) +
                             " / " + formatTime(g_total_duration_s);
-
-    // 只有当标题发生变化时（每秒更新一次）才调用系统 API，节省性能
     if (new_title != last_title) {
-      printf("\r%s", new_title.c_str());
-      fflush(stdout);
+      //   printf("\r%s", new_title.c_str());
+      //   fflush(stdout);
 
       if (window) {
         glfwSetWindowTitle(window, new_title.c_str());
@@ -190,18 +184,11 @@ int main(int argc, char* argv[]) {
       last_title = new_title;
     }
 
-    // 防止主线程空转
-    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    std::this_thread::sleep_for(std::chrono::milliseconds(20));  // 防止空转
   }
 
-  // 【终端换行保护】：防止退出时 shell 提示符覆盖进度条
-  printf("\n");
-
-  LOG_INFO << "Initiating player shutdown...";
   player.close();
-
-  std::cout << "[System] AVPlayer exited cleanly." << std::endl;
-  LOG_INFO << "AVPlayer exited cleanly.";
+  LOG_INFO << "AVPlayer exited cleanly";
 
   return 0;
 }

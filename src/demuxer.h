@@ -11,7 +11,7 @@ namespace avplayer {
 class Demuxer {
  public:
   Demuxer() = default;
-  ~Demuxer();
+  ~Demuxer() { close(); };
 
   Demuxer(const Demuxer&) = delete;
   Demuxer& operator=(const Demuxer&) = delete;

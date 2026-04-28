@@ -28,7 +28,7 @@ class Decoder {
   };
 
   Decoder() = default;
-  ~Decoder();
+  ~Decoder() { close(); };
 
   Decoder(const Decoder&) = delete;
   Decoder& operator=(const Decoder&) = delete;

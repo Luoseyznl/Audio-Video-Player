@@ -26,8 +26,8 @@ class Player {
       std::function<void(double timestamp_s, double duration_s)>;
   using StateCallback = std::function<void(State state)>;
 
-  Player();
-  ~Player();
+  explicit Player() = default;
+  ~Player() { close(); }
 
   Player(const Player&) = delete;
   Player& operator=(const Player&) = delete;

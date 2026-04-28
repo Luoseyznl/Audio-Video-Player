@@ -11,11 +11,6 @@ using namespace utils;
 
 namespace avplayer {
 
-Decoder::~Decoder() {
-  LOG_INFO << "Destroying Decoder";
-  close();
-}
-
 // 实例化解码器上下文 AVCodecContext 并传入解码参数
 bool Decoder::open(const AVStream* stream) {
   if (!stream || !stream->codecpar) {
@@ -89,14 +84,13 @@ bool Decoder::open(const AVStream* stream) {
 
 void Decoder::close() {
   if (codec_ctx_) {
-    LOG_INFO << "Closing decoder...";
     codec_ctx_.reset();  // 自动调用 avcodec_free_context
   }
 }
 
 void Decoder::flush() {
   if (codec_ctx_) {
-    LOG_INFO << "Flushing decoder buffers";
+    LOG_INFO << "Decoder flushing buffers";
     avcodec_flush_buffers(codec_ctx_.get());  // 丢弃解码器内的残留帧
   }
 }
@@ -111,11 +105,9 @@ bool Decoder::pushPacket(const PacketPtr& pkt) {
     return true;
   } else if (ret == AVERROR(EAGAIN)) {
     // EAGAIN 表示解码器缓冲区已满
-    LOG_DEBUG << "Decoder buffer full, packet rejected (EAGAIN)";
     return false;
   } else if (ret == AVERROR_EOF) {
     // EOF 表示解码器处于 Drain Mode
-    LOG_DEBUG << "Decoder in Drain Mode, packet ignored";
     return false;
   }
 
@@ -130,19 +122,15 @@ FramePtr Decoder::pullFrame() {
   if (!codec_ctx_) return nullptr;
 
   FramePtr frame(av_frame_alloc());
-  if (!frame) {
-    LOG_ERROR << "Failed to pull frame. Reason: Out of memory for AVFrame";
-    return nullptr;
-  }
+  if (!frame) return nullptr;
 
   int ret = avcodec_receive_frame(codec_ctx_.get(), frame.get());
-
   if (ret == 0) {
     return frame;
   } else if (ret == AVERROR(EAGAIN)) {
     return nullptr;
   } else if (ret == AVERROR_EOF) {
-    LOG_INFO << "Decoder drained (EOF)";
+    LOG_INFO << "Decoder reached EOF (Drained)";
     return nullptr;
   }
 
