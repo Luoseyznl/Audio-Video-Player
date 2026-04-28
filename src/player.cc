@@ -193,7 +193,8 @@ void Player::audioDecodeLoop() {
   const AVStream* audio_stream = packet_producer_.getAudioStream();
 
   while (running_) {
-    if (state_ != State::Playing) {
+    if (state_ != State::Playing &&
+        !audio_seek_pending_.load(std::memory_order_acquire)) {
       std::this_thread::sleep_for(std::chrono::milliseconds(10));
       continue;
     }
@@ -254,7 +255,8 @@ void Player::videoDecodeAndRenderLoop() {
   const AVStream* video_stream = packet_producer_.getVideoStream();
 
   while (running_) {
-    if (state_ != State::Playing) {
+    if (state_ != State::Playing &&
+        !video_seek_pending_.load(std::memory_order_acquire)) {
       std::this_thread::sleep_for(std::chrono::milliseconds(10));
       continue;
     }

@@ -33,7 +33,6 @@ find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)
 
 add_subdirectory(src)
-add_subdirectory(examples)
 
 option(BUILD_TESTS "Build unit tests" ON)
 if(BUILD_TESTS)

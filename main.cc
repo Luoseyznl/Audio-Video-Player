@@ -86,7 +86,7 @@ void handleKeyPress(Player& player, int key) {
       break;
     case GLFW_KEY_S:
       if (player.getState() != Player::State::Playing) {
-        player.seek(player.getCurrentTimestamp() + 0.040);  // 40ms 单帧步进
+        player.seek(player.getCurrentTimestamp() + 0.04);  // 40ms 步进
       }
       break;
     case GLFW_KEY_M:
