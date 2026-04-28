@@ -13,6 +13,8 @@ The project follows a decoupled pipeline: Demuxing -> Decoding -> Buffering -> R
 
 ![Project Architecture](docs/01_Architecture_Overview/ffmepg_abstract.png)
 
+[My Note of AV media](docs/01_Architecture_Overview/01_Architecture_Overview.md)
+
 # Features
 
 - Modular design with separate components for demuxing, decoding and rendering.
