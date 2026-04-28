@@ -1,6 +1,5 @@
 build/*
 .vscode/*
-assets/*
 docs/*
 !docs/*/
 docs/*/*
